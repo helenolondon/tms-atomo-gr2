@@ -1,0 +1,9 @@
+<div class="content">
+    <label><ng-content></ng-content></label>
+    <div id="input">
+        <p-autoComplete #autocomplete [(ngModel)]="value" [field]="displayField" [dataKey]="key" 
+            [suggestions]="results" [dropdown]="true" [disabled]="disabled" (onSelect)="onSelectOrUnselect($event)" 
+            (onUnselect)="onSelectOrUnselect($event)" (onClear)="onClear()" [forceSelection]="'true'"  
+            [style]="{'width':'100%'}" (completeMethod)="search($event)"></p-autoComplete>
+        </div>    
+</div>

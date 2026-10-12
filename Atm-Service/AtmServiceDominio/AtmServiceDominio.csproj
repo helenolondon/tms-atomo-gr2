@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>AtmServiceDominio</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mapeamentos\**" />
+    <EmbeddedResource Remove="Mapeamentos\**" />
+    <None Remove="Mapeamentos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ObjetosDeDominio\Cep\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AtmServicePersistencia\AtmServiceInfra.csproj" />
+  </ItemGroup>
+
+</Project>

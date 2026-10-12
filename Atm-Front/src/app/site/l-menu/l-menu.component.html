@@ -1,0 +1,50 @@
+<div id="top-realce"></div>
+<mat-toolbar color="primary" class="mat-elevation-z3 mat-toolbar">
+    <mat-toolbar-row style="padding-left: 0px;">
+      <!-- Lado esquerdo da toolbar -->
+      
+      <button id="menu-button" mat-button title="Menu" [disabled]="!Autenticado()" (click)="toggleDrawer()">
+        <span class="mat-button-wrapper">
+          <mat-icon class="notranslate mat-icon-no-color" role="img" svgicon="menu" aria-hidden="true">
+              <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+          </mat-icon>
+        </span>
+      </button>
+      <div id="atom-icon">
+        <img src="assets/imagens/atomo.png">
+      </div>
+      <div id="atom-app-name">
+        <img src="assets/imagens/app-nome-varejista.png">
+      </div>
+
+      <div id="bar-div"></div>
+      <!-- Lado direito da toolbar -->
+
+      <div id="menu-basico" *ngIf="Autenticado()">
+        <div [routerLink]="lk.link" *ngFor="let lk of links">
+          <div class="texto-link" [ngClass]="{'ativo': lk.link == urlCorrente}" >
+            {{lk.texto}}
+          </div>
+        </div>
+      </div>
+
+      <div id="atom-botao-sair" 
+          *ngIf="Autenticado()"
+          (click)="onSairClick()">
+        <img src="assets/imagens/sair.png">
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" [hasBackdrop]="'false'"  >
+    <mat-drawer [opened]="drawerOpened && Autenticado()" #drawer [mode]="'side'" style="width: 251px">
+      <div>
+        <ng-content select="side-menu"></ng-content>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div id="content">
+        <ng-content></ng-content>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>

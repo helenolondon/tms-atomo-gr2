@@ -1,0 +1,21 @@
+<atm-gerenciador 
+    [dataSource]="clientes" 
+    [colunas]="colunas"
+    [titulo]="'CLIENTES'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'cliente.nome'"
+    (onRefresh)="onPesquisaSubmit()"
+>
+    <form class="g-pesquisa-form" (ngSubmit)="onPesquisaSubmit()" #pform >
+        <atm-text-editor id="tx-nome" [(ngModel)]="pFormM.nome" name="nome">Nome</atm-text-editor>
+        <atm-text-editor id="tx-razaoSocial" [(ngModel)]="pFormM.razaoSocial" name="nome">Razão social</atm-text-editor>
+        <atm-text-editor id="tx-cpfCnpj" [(ngModel)]="pFormM.cpfCnpj" name="nome">CPF/CNPJ</atm-text-editor>
+        <atm-text-editor id="tx-identidade" [(ngModel)]="pFormM.identidade" name="nome">Identidade</atm-text-editor>
+        <atm-text-editor id="tx-inscricaoEstadual" [(ngModel)]="pFormM.inscricaoEstadual" name="nome">Insc./Estadual</atm-text-editor>
+        <atm-text-editor id="tx-telefone" [(ngModel)]="pFormM.telefone" name="nome">Telefone</atm-text-editor>
+        <atm-text-editor id="tx-contato" [(ngModel)]="pFormM.contato" name="nome">Contato</atm-text-editor>
+        <atm-text-editor id="tx-email" name="email" [(ngModel)]="pFormM.email">E-mail</atm-text-editor>
+        <atm-button id="btn-pesquisar" [submit]="true" class="gp-submit-button" [label]="'Pesquisar'" #btnPesquisar></atm-button>
+    </form>
+</atm-gerenciador>

@@ -1,0 +1,2 @@
+﻿Separar consultas por áreas de negócio
+Qualquer listagem ou consulta deve ficar aqui.

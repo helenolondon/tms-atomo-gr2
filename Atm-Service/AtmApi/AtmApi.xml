@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtmApi</name>
+    </assembly>
+    <members>
+        <member name="T:AtmApi.Controllers.AtmController">
+            <summary>
+            Classe base dos controllers da aplicação
+            </summary>
+        </member>
+        <member name="F:AtmApi.Controllers.AtmController.services">
+            <summary>
+            Repositório de serviços do sistema
+            </summary>
+        </member>
+        <member name="M:AtmApi.Controllers.AtmController.#ctor">
+            <summary>
+            Construtor padrão da class
+            </summary>
+        </member>
+        <member name="M:AtmApi.Controllers.AtmController.Executar(System.Func{Microsoft.AspNetCore.Mvc.IActionResult})">
+            <summary>
+            Executa o código dos controllers tratando erros.
+            </summary>
+            <param name="action"></param>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:AtmApi.Controllers.AtmController.#ctor(AtmService.IAtmServices)">
+            <summary>
+            Construtor padrão do sistema
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:AtmApi.Controllers.AtmController.RetInnerException(System.Exception)">
+            <summary>
+            Retorna última exception da propriedade InnerException de ex
+            </summary>
+            <param name="ex"></param>
+            <returns>Exception</returns>
+        </member>
+        <member name="M:AtmApi.Controllers.AtmController.RetTokenDoRequest">
+            <summary>
+            Retorna o valor de Authorization no cabeçalho da requisição
+            </summary>
+            <returns>string contendo o token</returns>
+        </member>
+        <member name="T:AtmApi.Controllers.Autenticacao.AutenticacaoController">
+            <summary>
+            Serviços de autenticação
+            </summary>
+        </member>
+        <member name="M:AtmApi.Controllers.Autenticacao.AutenticacaoController.Login(AtmApi.Controllers.Autenticacao.Requests.LoginRequest)">
+            <summary>
+            Efetua Login no sistema.
+            Configurado para avato template
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtmApi.Controllers.Autenticacao.AutenticacaoController.verify(System.String)">
+            <summary>
+            Verifica validade do token de aceso
+            </summary>
+            <param name="token"></param>
+            <returns>Ok ou UnAuthoreized</returns>
+        </member>
+        <member name="T:AtmApi.Controllers.Autenticacao.Requests.LoginRequest">
+            <summary>
+            Request padrão de login
+            </summary>
+        </member>
+        <member name="T:AtmApi.Controllers.Usuarios.Requests.SalvarUsuarioRequest">
+            <summary>
+            Representa os dados de um usuário a serem salvos
+            </summary>
+        </member>
+        <member name="T:AtmApi.Controllers.Usuarios.UsuariosController">
+            <summary>
+            Operações de manutenção dos usuários do sistema
+            </summary>
+        </member>
+        <member name="M:AtmApi.Controllers.Usuarios.UsuariosController.ListarUsuarios">
+            <summary>
+            Retorna lista de usuários cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtmApi.Controllers.Usuarios.UsuariosController.RetUsuarioPorId(System.Int32)">
+            <summary>
+            Retorna lista de usuários cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtmApi.Controllers.Usuarios.UsuariosController.SalvarUsuario(AtmApi.Controllers.Usuarios.Requests.SalvarUsuarioRequest)">
+            <summary>
+            Salva usuário configurado para Metronic Templa
+            </summary>
+            <param name="Request">Tipo: SalvarUsuarioMetronicRequest</param>        
+        </member>
+        <member name="M:AtmApi.Controllers.Usuarios.UsuariosController.ExcluirUsuario(System.Int32)">
+            <summary>
+            Faz a exclusão de um usuário do sistema
+            </summary>
+            <param name="codUsuario"></param>
+        </member>
+        <member name="M:AtmApi.Controllers.Usuarios.UsuariosController.RetUsuarioPorLogin(System.String)">
+            <summary>
+            Retorna usuário por login
+            </summary>
+            <param name="login"></param>
+        </member>
+    </members>
+</doc>

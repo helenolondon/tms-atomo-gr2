@@ -1,0 +1,6 @@
+<div class="content">
+    <label><ng-content></ng-content></label>
+    <div id="input">
+        <p-dropdown [options]="innerItems" [disabled]="disabled" (onChange)="change($event)" [(ngModel)]="value"></p-dropdown>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div id="content">
+    <div id="button">
+        <div *ngIf="submit">
+            <button pButton type="submit" [disabled]="disabled" [class]="getBtnClass()" [label]="btnLabel"></button>
+        </div>
+        <div *ngIf="!submit">
+            <button pButton type="button" [disabled]="disabled" [class]="getBtnClass()"  [label]="btnLabel" (click)="btnClick()"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+label{
+    font-size: inherit;
+    &.number{
+        float: right;
+        margin-top: -5px;
+        margin-bottom: 5px;
+    }
+}
+
+#input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.content{
+    width: inherit;
+}
+
+// Remove spin button no chrome
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin-right: 0;
+}

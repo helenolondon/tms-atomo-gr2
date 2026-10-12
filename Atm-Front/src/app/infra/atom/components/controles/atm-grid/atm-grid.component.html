@@ -1,0 +1,75 @@
+<p-table id="ptable" [columns]="columns" [value]="dataSource" sortMode="multiple"
+    [paginator]="true" [rows]='10' [showCurrentPageReport]="true" 
+    
+    currentPageReportTemplate="{first} até {last} de {totalRecords} registros">
+    
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <!-- Editar -->
+            <th class="btn-col" *ngIf="showBtnEditar">
+            </th>
+            
+            <!-- Right Custom buttons -->
+            <th class="btn-col" *ngFor="let btn of leftGridCustomButtons">
+
+            </th>
+
+            <th [ngStyle]="{'vertical-align': 'top', 'overflow': 'hidden', 
+                'text-align': getTextAlign(col)}" *ngFor="let col of columns" [pSortableColumn]="col.field">
+                <span style="text-align: center;">
+                    <span>{{col.header}}</span>
+                    <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" 
+                        ariaLabelDesc="Activate to sort in descending order" 
+                        ariaLabelAsc="Activate to sort in ascending order">
+                    </p-sortIcon>
+                </span>
+            </th>
+
+            <!-- Right Custom buttons -->
+            <th class="btn-col" *ngFor="let btn of rightGridCustomButtons">
+
+            </th>
+
+            <!-- Excluir --> 
+            <th class="btn-col" *ngIf="showBtnExcluir">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td [ngStyle]="{'vertical-align': 'middle'}" *ngIf="showBtnEditar" class="btn-col">
+                <span><i class="fas fa-external-link-alt" pTooltip="Abrir" (click)="onEditarClick(rowData)"></i></span>
+            </td>
+
+            <!-- Left Custom Buttons -->
+            <td [ngStyle]="{'vertical-align': 'middle'}" class="btn-col" *ngFor="let btn of leftGridCustomButtons">
+                <span><i [ngClass]="btn.icon" [pTooltip]="btn.hint" (click)="onCustomButtonClick(rowData, btn.key)"></i></span>
+            </td>
+
+            <td [ngStyle]="{'vertical-align': 'middle', 'text-align': getTextAlign(col)}" *ngFor="let col of columns">
+                <span *ngIf="getColumnType(col) == 'date'" >
+                    {{getRowDataFieldValue(rowData, col.field) | date: 'dd/MM/yyyy' }}
+                </span>								
+                <span *ngIf="getColumnType(col) == 'number'" >
+                    {{getRowDataFieldValue(rowData, col.field) | number: '1.2-9' }}
+                </span>								
+                <span *ngIf="getColumnType(col) == 'integer'" >
+                    {{getRowDataFieldValue(rowData, col.field) | number: '1.0'  }}
+                </span>								
+                <span *ngIf="getColumnType(col) == 'string'" >
+                    {{getRowDataFieldValue(rowData, col.field)}}
+                </span>								
+            </td>
+            
+            <!-- Right Custom Buttons -->
+            <td [ngStyle]="{'vertical-align': 'middle'}" class="btn-col" *ngFor="let btn of rightGridCustomButtons">
+                <span><i [ngClass]="btn.icon" [pTooltip]="btn.hint" (click)="onCustomButtonClick(rowData, btn.key)"></i></span>
+            </td>
+
+            <!-- Excluir -->
+            <td [ngStyle]="{'vertical-align': 'middle'}" *ngIf="showBtnExcluir" class="btn-col">
+                <span><i class="fas fa-trash-alt" pTooltip="Excluir" (click)="onExcluirClick(rowData)"></i></span>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

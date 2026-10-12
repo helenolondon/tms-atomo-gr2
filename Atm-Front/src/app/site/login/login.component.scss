@@ -1,0 +1,71 @@
+.login-div{
+	margin-top: 100px;
+	width: 330px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	hr{
+		opacity: 0.6;
+	}
+}
+
+.botoes-controle{
+	margin-top: 15px;
+	dx-button{
+		width: 100%;
+		margin-top: 2px;
+	}
+
+	#p-logado-div{
+		margin-top: 5px;
+
+		label{
+			font-size: 0.8rem;
+		}
+
+		input[type=checkbox] {
+			margin-right: 0px;
+			float: right;
+		}
+	}
+}
+
+.dx-fieldset-header{
+	text-align: left;
+}
+
+.login-alert{
+	margin-top: 10px;
+}
+
+atom-alert{
+	height: 2rem;
+}
+
+.texto-erro{
+	margin-top: 10px;
+	height: 1rem;
+}
+
+#button{
+	height: 100%;
+	
+}
+
+#button .button-indicator {
+	height: 15px;
+    width: 15px;
+    display: inline-block;
+    vertical-align: middle;
+	margin-right: 2px;
+}
+
+.dx-button-text.login{
+	margin-left: 8px;
+}
+
+#divRegistrar{
+	float: right;
+	margin-top: 5px;
+	margin-right: -16px;
+}

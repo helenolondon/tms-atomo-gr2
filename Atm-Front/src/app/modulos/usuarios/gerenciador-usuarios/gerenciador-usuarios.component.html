@@ -1,0 +1,17 @@
+<atm-gerenciador 
+    [dataSource]="usuarios" 
+    [colunas]="colunas"
+    [getModelApi]="getUsuario"
+    [titulo]="'USUÁRIOS DO SISTEMA'"
+    [deleteModelApi]="excluirUsuario"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()"
+>
+    <form class="g-pesquisa-form" (ngSubmit)="onPesquisaSubmit()" #pform >
+        <atm-text-editor id="tx-nome" [(ngModel)]="pFormM.nome" name="nome">Nome</atm-text-editor>
+        <atm-text-editor id="tx-login" name="login" [(ngModel)]="pFormM.login">Login</atm-text-editor>
+        <atm-text-editor id="tx-email" name="email" [(ngModel)]="pFormM.email">E-mail</atm-text-editor>
+        <atm-text-editor id="tx-telefone" name="telefone" class="gp-pesquisa" [(ngModel)]="pFormM.telefone">Telefone</atm-text-editor>
+        <atm-button id="btn-pesquisar" [submit]="true" class="gp-submit-button" [label]="'Pesquisar'" #btnPesquisar></atm-button>
+    </form>
+</atm-gerenciador>

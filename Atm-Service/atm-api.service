@@ -1,0 +1,18 @@
+[Unit]
+Description=Atom service
+
+[Service]
+WorkingDirectory=/var/www/atm-api/
+#Api publicada no modo self-contained
+ExecStart=/var/www/atm-api/AtmApi
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=atm-api
+#Usuário precisa ser capaz de executar o programa no shell, tem que ter acesso. Testar no terminal primeiro
+User=ubuntu 
+Environment=ASPNETCORE_ENVIRONMENT=abacos-prod 
+
+[Install]
+WantedBy=multi-user.target

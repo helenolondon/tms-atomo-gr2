@@ -1,0 +1,46 @@
+<div class="login-div">
+	<atm-component>
+		<form class="form" (submit)="loginSubmit($event)">
+			<div class="dx-fieldset">
+				<div class="dx-fieldset-header">Login <span style="float: right;"><i class="fas fa-lock"></i></span>
+				</div>
+				<hr />
+				<dx-form labelLocation="top" [formData]="login" #loginForm>
+					<dxi-item dataField="login">
+						<dxo-label text="Usuário"></dxo-label>
+						<dxi-validation-rule type="required" message="Usuário é obrigatório">
+						</dxi-validation-rule>
+					</dxi-item>
+					<dxi-item dataField="senha" is-required="true" editorType="dxTextBox"
+						[editorOptions]="{ mode: 'password'}">
+						<dxi-validation-rule type="required" message="Senha é obrigatória">
+						</dxi-validation-rule>
+					</dxi-item>
+				</dx-form>
+				<div class="login-alert">
+					<atom-alert id="login-alert" #loginAlert>Login não autorizado</atom-alert>
+				</div>
+				<div class="botoes-controle">
+					<dx-button id="button" [useSubmitBehavior]="true" stylingMode="contained" text="Enviar"
+						type="default">
+						<div *dxTemplate="let data of 'content'">
+							<dx-load-indicator class='button-indicator' indicatorSrc="../assets/imagens/loading.gif"
+								[visible]="efetuandoLogin">
+							</dx-load-indicator>
+							<span class='dx-button-text login' *ngIf="efetuandoLogin">Efetuando login</span>
+							<span class='dx-button-text' *ngIf="!efetuandoLogin">Login</span>
+						</div>
+					</dx-button>
+					<div id="p-logado-div">
+						<label>Permanecer logado</label><input [(ngModel)]="permanecerLogado" 
+							name="permacerLogado" type="checkbox">
+					</div>
+					<div id="divRegistrar">
+						<a href="#" routerLink="/registrar-se">Registrar-se</a>
+					</div>
+				</div>
+
+		</div>
+		</form>
+	</atm-component>
+</div>

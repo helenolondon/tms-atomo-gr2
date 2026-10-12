@@ -1,0 +1,16 @@
+/**
+ * Autor: Heleno Sales Mesquita
+ * Data : 22/07/2020
+ * 
+ * Overrides dos estilos toastr.
+ */
+
+.toast-message{
+    line-height: 1.2;
+}
+
+.toast-container{
+    .toast-error{
+        background-color: #d6483e;
+    }
+}

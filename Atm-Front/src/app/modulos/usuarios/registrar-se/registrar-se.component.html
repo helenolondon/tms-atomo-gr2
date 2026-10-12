@@ -1,0 +1,68 @@
+
+<atm-component>
+    <div id="usu-container">
+        <div id="col1">
+            <div id="dadosRegistro">Informações cadastrais<span style="float: right;"><i class="fas fa-user"></i></span>
+            </div>
+            <form id="frm-usuario" [formGroup]="usuariosForm"  (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <atm-text-editor #nomeCt id="tx-nome" name="nome"  [focus]="true" formControlName="nome" >Nome:</atm-text-editor>
+                    <atm-val-message [control]="usuariosForm.get('nome')">
+                        Nome é obrigatório
+                    </atm-val-message>
+                </div>
+                
+                <!-- <div id="container-doc">
+                    <div>
+                        <atm-radiobutton [label]="'CPF'" [group-name]="cpfcnpj"></atm-radiobutton>
+                    </div>
+                    <div>
+                        <atm-radiobutton [label]="'CNPJ'" [group-name]="cpfcnpj"></atm-radiobutton>
+                    </div>
+                </div> -->
+
+                <div class="container">
+                    <atm-text-editor id="tx-cpfcnpj" name="cpfcnpj" formControlName="cpfCnpj">Cpf ou Cnpj:</atm-text-editor>
+                    <atm-val-message [control]="usuariosForm.get('cpfCnpj')">
+                        Cpf ou Cnpj é inválido
+                    </atm-val-message>
+                </div>
+                
+                <div class="container">
+                    <atm-text-editor id="tx-telefone" name="telefone" formControlName="telefone">Telefone:</atm-text-editor>
+                    <atm-val-message [control]="usuariosForm.get('telefone')">
+                        Telefone é inválido
+                    </atm-val-message>
+                </div>
+
+                <div class="container">
+                    <atm-text-editor id="tx-email" name="email" formControlName="email">E-mail:</atm-text-editor>
+                    <atm-val-message [control]="usuariosForm.get('email')">
+                        E-mail é inválido
+                    </atm-val-message>
+                </div>
+                
+                <div id="container">
+                    <atm-checkbox id="ckAdvogado" [label]="'Advogado'" name="advogado" formControlName="advogado">
+                    </atm-checkbox>
+                    <div class="container">
+                        <atm-text-editor 
+                            *ngIf="advogado" #nomeCt 
+                            id="tx-numoab" name="numoab" [focus]="true" 
+                            formControlName="numoab">Registro OAB:</atm-text-editor>
+                        <atm-val-message [control]="usuariosForm.get('numoab')">
+                            Número do registro na OAB é obrigatório
+                        </atm-val-message>
+                    </div>
+                </div>
+
+                <atm-server-response-error [erros]="erros"></atm-server-response-error>
+
+                <atm-button id="btn-salvar" [submit]="true" [label]="'Enviar'" #btnSalvar></atm-button>
+                <!-- <div style="margin-top: 15px">
+                    <botao-pagamento></botao-pagamento>
+                </div> -->
+            </form>
+        </div>
+    </div>
+</atm-component>

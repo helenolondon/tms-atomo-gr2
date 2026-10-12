@@ -1,0 +1,177 @@
+<div id="conteudo">
+	<!-- Painel de pesquisa -->
+	<div id="filtros-painel" [ngClass]="{'painel-filtro': true, 'visivel': filtroVisivel}" >
+		<div class="header">
+			<span *ngIf="filtroVisivel">Pesquisa</span><span id="filter-icon"><i class="fas fa-filter"></i></span>
+		</div>
+
+		<!-- Aqui fica o formulário de pesquisa -->
+		<div class="content">
+			<ng-content></ng-content>
+		</div>
+	</div>
+
+	<!-- Conteúdo principal -->
+	<div id="painel-area-trabalho" >
+
+		<div id="grid-header">
+			<!-- Implementação das views -->
+			<div style="float: left; white-space: nowrap;">
+				<div>
+					<p id="titulo-manager">{{managerTitulo | uppercase}}</p>
+				</div>
+			</div>
+
+			<div id="toolbar-direita">
+				<button pButton type="button" label="" *ngIf="this.storageKey" class="ui-button-secondary" icon="fas fa-cog" pTooltip="Configurações da página" (click)="onConfigClick()">
+				</button>
+
+				<button  *ngFor="let btn of toolbarCustomButtons" pButton type="button" [label]="btn.text" 
+						class="ui-button-secondary" [icon]="btn.icon" hint="Atualizar" 
+					(click)="onToolbarCustomButtonsClick(btn.key)">
+				</button>
+
+				<button pButton type="button" label="" class="ui-button-secondary" icon="fas fa-sync-alt" pTooltip="Atualizar" 
+					(click)="refresh()">
+				</button>
+				
+				<button pButton type="button" label="" class="ui-button-secondary" icon="far fa-file" pTooltip="Novo" (click)="onNovo()">
+				</button>
+<!-- 				
+				<button pButton type="button" label="" class="ui-button-secondary" icon="fas fa-file-excel" hint="Exportar tudo" (click)="onExportarExcel()">
+				</button> -->
+
+				<button pButton type="button" label="" class="ui-button-secondary" [ngClass]="{'toobar-button-selecionado': filtroVisivel}" icon="fas fa-filter" hint="Mostra painel de filtros" 
+					(click)="onToogleFiltros()">
+				</button>
+			</div>
+		</div>
+		
+		<p-tabView (onClose)="onTabClose($event)" >
+			<p-tabPanel header="Resultados da pesquisa" [closable]="false">
+				<!-- Grid com os dados -->
+				<p-table id="ptable" [columns]="cols" [value]="dataSource" sortMode="multiple" 
+					[paginator]="true" [rows]='lazyLoadingPageInfo.numberOfRows' [showCurrentPageReport]="true" [lazy]='lazyLoadRecords' [loading]="getLoading()"
+					(onLazyLoad)="onLazyLoadRecords($event)" [(selection)]="selectedObjects" [totalRecords]="totalRecords"
+					[autoLayout]="true" [resetPageOnSort]="false"
+					
+					
+					currentPageReportTemplate="{first} to {last} de {totalRecords} registros">
+					
+					<ng-template pTemplate="header" let-columns>
+						<tr>
+							
+							<!-- Selection --> 
+							<th class="grid-btn selection-check" *ngIf="enableMultipleSelection">
+								<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+							</th>
+							<!-- Editar -->
+							<th class="grid-btn" *ngIf="showEditarButton">
+							</th>
+							
+							<!-- Right Custom buttons -->
+							<th class="grid-btn" *ngFor="let btn of leftGridCustomButtons">
+
+							</th>
+
+							<th [ngStyle]="{'vertical-align': 'top', 'overflow': 'hidden', 
+								'text-align': getTextAlign(col)}" *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn >
+								<span style="text-align: center;" >
+									<span>{{col.header}}</span>
+									<p-sortIcon [field]="col.field" style="float: none;" ariaLabel="Activate to sort" 
+										ariaLabelDesc="Activate to sort in descending order" 
+										ariaLabelAsc="Activate to sort in ascending order">
+									</p-sortIcon>
+								</span>
+							</th>
+
+							<!-- Right Custom buttons -->
+							<th class="grid-btn" *ngFor="let btn of rightGridCustomButtons">
+
+							</th>
+
+							<!-- Excluir --> 
+							<th class="grid-btn" *ngIf="showExcluirButton">
+							</th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-rowData let-columns="columns">
+						<tr [pSelectableRow]="rowData">
+							<td class="grid-btn" *ngIf="enableMultipleSelection">
+								<p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+							</td>
+
+							<td [ngStyle]="{'vertical-align': 'middle'}" class="grid-btn" *ngIf="showEditarButton">
+								<span><i class="fas fa-external-link-alt" pTooltip="Abrir" (click)="onEditarClick(rowData)"></i></span>
+							</td>
+
+							<!-- Left Custom Buttons -->
+							<td [ngStyle]="{'vertical-align': 'middle'}" class="grid-btn" *ngFor="let btn of leftGridCustomButtons">
+								<span><i [ngClass]="btn.icon" [pTooltip]="btn.hint" (click)="_onCustomButtonClick(rowData, btn.key)"></i></span>
+							</td>
+
+							<td [ngStyle]="{'vertical-align': 'middle', 'text-align': getTextAlign(col),'overflow-wrap': 'anywhere'}" *ngFor="let col of columns">
+								<span *ngIf="col.type == 'date'" >
+									{{getRowDataFieldValue(rowData, col.field) | date: 'dd/MM/yyyy' }}
+								</span>								
+								<span *ngIf="col.type == 'number'" >
+									{{getRowDataFieldValue(rowData, col.field) | number: '1.2-9' }}
+								</span>								
+								<span *ngIf="col.type == 'integer'" >
+									{{getRowDataFieldValue(rowData, col.field) | number: '1.0' }}
+								</span>								
+								<span *ngIf="col.type == 'cpfCnpj'" >
+									{{getRowDataFieldValue(rowData, col.field) | cpfCnpj }}
+								</span>								
+								<span *ngIf="col.type == 'cep'" >
+									{{getRowDataFieldValue(rowData, col.field) | cep }}
+								</span>								
+								<span *ngIf="col.type == undefined" >
+									{{getRowDataFieldValue(rowData, col.field)}}
+								</span>								
+							</td>
+							
+							<!-- Right Custom Buttons -->
+							<td [ngStyle]="{'vertical-align': 'middle'}" class="grid-btn" *ngFor="let btn of rightGridCustomButtons">
+								<span><i [ngClass]="btn.icon" [pTooltip]="btn.hint" (click)="_onCustomButtonClick(rowData, btn.key)"></i></span>
+							</td>
+	
+							<!-- Excluir -->
+							<td [ngStyle]="{'vertical-align': 'middle'}" class="grid-btn" *ngIf="showExcluirButton">
+								<span><i class="fas fa-trash-alt" pTooltip="Excluir" (click)="onExcluirClick(rowData)"></i></span>
+							</td>
+						</tr>
+					</ng-template>
+				</p-table>
+			</p-tabPanel>
+
+			<p-tabPanel *ngFor="let tab of tabs" header="{{tab.header}}" [closable]="true">
+				<ng-template appHost></ng-template>
+			</p-tabPanel>
+
+		</p-tabView>
+	</div>
+</div>
+
+<p-confirmDialog [appendTo]="'body'" [acceptLabel]="'Sim'" [rejectLabel]="'Não'" header="Confirmação" icon="pi pi-question-circle"></p-confirmDialog>
+
+<atm-modal #mdConfiguracoes [width]="'350px'" [title]="'Configurações da página'">
+	<form (ngSubmit)="onConfiguracoesSubmit()" [formGroup]="configuracoesFormGroup">
+		<div class="grid-container">
+			<div class="grid-item margin-top-5 conf-label">
+				<label>Linhas por página: </label>
+			</div>
+
+			<div class="grid-item">
+				<atm-text-editor id="qtdLinhasNaPagina" name="qtdLinhasNaPagina" [type]="'integer'" 
+					formControlName="qtdLinhasNaPagina"></atm-text-editor>
+			</div>
+		</div>
+
+		<div class="grid-continer">
+			<div class="grid-item offset-2-1 no-padding margin-top-10">
+				<atm-button label="Salvar" [type]="'primary'" [submit]="true" ></atm-button>
+			</div>   
+		</div>
+	</form>
+</atm-modal>

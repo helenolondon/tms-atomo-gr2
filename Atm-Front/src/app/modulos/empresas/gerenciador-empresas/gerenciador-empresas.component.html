@@ -1,0 +1,20 @@
+<atm-gerenciador 
+    [dataSource]="listaDeEmpresas" 
+    [colunas]="colunas"
+    [titulo]="'EMPRESAS'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'razaoSocial'"
+    (onRefresh)="onPesquisaSubmit()"
+>
+    <form class="g-pesquisa-form" (ngSubmit)="onPesquisaSubmit()" #pform >
+        <atm-text-editor id="tx-razaoSocial" [(ngModel)]="pFormM.razaoSocial" name="razaoSocial">Razão social</atm-text-editor>
+        <atm-text-editor id="tx-nomeFantasia" [(ngModel)]="pFormM.nomeFantasia" name="nomeFantasia">Nome fantasia</atm-text-editor>
+        <atm-text-editor id="tx-cnpj" [(ngModel)]="pFormM.cnpj" name="cnpj">CNPJ</atm-text-editor>
+        <atm-text-editor id="tx-responsavel" [(ngModel)]="pFormM.responsavel" name="responsavel">Responsável</atm-text-editor>
+        <atm-text-editor id="tx-telefone" [(ngModel)]="pFormM.telefone" name="telefone">Telefone</atm-text-editor>
+        <atm-text-editor id="tx-contato" [(ngModel)]="pFormM.contato" name="contato">Contato</atm-text-editor>
+        <atm-text-editor id="tx-email" name="email" [(ngModel)]="pFormM.email">E-mail</atm-text-editor>
+        <atm-button id="btn-pesquisar" [submit]="true" class="gp-submit-button" [label]="'Pesquisar'" #btnPesquisar></atm-button>
+    </form>
+</atm-gerenciador>

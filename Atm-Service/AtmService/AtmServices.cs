@@ -1,0 +1,151 @@
+﻿using AtmService.Arquivos;
+using AtmService.Clientes;
+using AtmService.Contatos;
+using AtmService.Empresas;
+using AtmService.Enderecos;
+using AtmService.Fiscal;
+using AtmService.Seguranca;
+using AtmService.Usuarios;
+using AtmServiceDominio;
+using Microsoft.Extensions.Configuration;
+
+namespace AtmService
+{
+    public class AtmServices : IAtmServices
+    {
+        private readonly IConfiguration configuration;
+
+        Dominios dom;
+
+        private IArquivosService arquivosService;
+        private IContatosService contatosService;
+        private ISegurancaService segurancaService;
+        private IUsuariosService usuariosService;
+        private IEnderecosService enderecosService;
+        private IFiscalService fiscalService;
+        private IClientesService clientesService;
+        private IEmpresasService empresasService;
+
+        public AtmServices(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+
+            CriarDominios();
+        }
+
+        private void CriarDominios()
+        {
+            this.dom =  new Dominios(configuration);
+        }
+
+        public void Commit()
+        {
+            dom.Salvar();
+        }
+
+        public IContatosService ContatosService
+        {
+            get
+            {
+                if (this.contatosService == null)
+                {
+                    this.contatosService = new ContatosService(dom.ContatosOD);
+                }
+
+                return this.contatosService;
+            }
+        }
+
+        public IArquivosService ArquivosService
+        {
+            get
+            {
+                if (this.arquivosService == null)
+                {
+                    this.arquivosService = new ArquivosService(dom.ArquivosOD);
+                }
+
+                return this.arquivosService;
+            }
+        }
+
+        public ISegurancaService SegurancaService
+        {
+            get
+            {
+                if (this.segurancaService == null)
+                {
+                    this.segurancaService = new SegurancaService(dom.SegurancaOD);
+                }
+
+                return this.segurancaService;
+            }
+        }
+
+        public IUsuariosService UsuariosService
+        {
+            get
+            {
+                if (this.usuariosService == null)
+                {
+                    this.usuariosService = new UsuariosService(dom.UsuariosOD, dom.SegurancaOD, dom.SistemaOD);
+                }
+
+                return this.usuariosService;
+            }
+        }
+
+        public IEnderecosService EnderecosService
+        {
+            get
+            {
+                if (this.enderecosService == null)
+                {
+                    this.enderecosService = new EnderecosService(dom.LogradourosOD, dom.CidadesOD, dom.BairrosOD,
+                        dom.EstadosOD);
+                }
+
+                return this.enderecosService;
+            }
+        }
+
+        public IFiscalService FiscalService
+        {
+            get
+            {
+                if (this.fiscalService == null)
+                {
+                    this.fiscalService = new FiscalService(dom.CnaesOD, dom.FiscalOD);
+                }
+
+                return this.fiscalService;
+            }
+        }
+
+        public IClientesService ClientesService
+        {
+            get
+            {
+                if (this.clientesService == null)
+                {
+                    this.clientesService = new ClientesService(dom.ClientesOD);
+                }
+
+                return this.clientesService;
+            }
+        }
+
+        public IEmpresasService EmpresasService
+        {
+            get
+            {
+                if (this.empresasService == null)
+                {
+                    this.empresasService = new EmpresasService(dom.EmpresasOD, dom.CnaesOD);
+                }
+
+                return this.empresasService;
+            }
+        }
+    }
+}

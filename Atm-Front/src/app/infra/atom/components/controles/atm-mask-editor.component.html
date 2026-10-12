@@ -1,0 +1,8 @@
+<div class="content">
+    <label><ng-content></ng-content></label>
+    <div id="input">
+        <div class="ui-inputgroup" >
+            <p-inputMask [mask]="mask" [ngStyle]="style" [disabled]='disabled' [autoFocus]="focus" [(ngModel)]="value" ></p-inputMask>
+        </div>    
+    </div>
+</div>

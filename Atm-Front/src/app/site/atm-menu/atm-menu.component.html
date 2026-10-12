@@ -1,0 +1,25 @@
+<div class="atm-menu-container">
+	<div *ngFor="let menu of menuItens">
+		<button
+			[ngClass]="{'menu-item-button': true, 'menu-selecionado': menu.selecionado, 'menu-item-sub': (menu.itens() && menu.itens().length > 0), 'child-sub-menu': retParentMenu()}"
+			(click)="menuClick(menu)">
+				
+				<div class="menu-text" [ngClass]="{'menu-selecionado': menu.selecionado}" [ngStyle]="{'padding-left': retButtonIdent()}">{{menu.titulo}}</div>
+				
+				<div [hidden]="menu.itens().length == 0">
+					<mat-icon>
+						<svg [@rotatedState]='retMenuState(menu)' focusable="false" viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg">
+							<path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+						</svg>
+					</mat-icon> 
+				</div>
+		</button>
+
+		<div [hidden]="menu.itens().length == 0">
+			<div [@menuFade] *ngIf="menu.aberto" name="menu.titulo">
+				<atm-menu [menu-itens]="menu.itens()" [parent-menu-component]="this"></atm-menu>
+			</div>
+		</div>
+	</div>
+</div>

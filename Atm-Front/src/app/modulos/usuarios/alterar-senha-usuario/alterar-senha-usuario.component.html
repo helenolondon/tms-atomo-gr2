@@ -1,0 +1,31 @@
+<atm-component>
+    <div id="conteudo">
+        <div id="titulo">ALTERAR SENHA</div>
+        <form id="frmAlterarSenha" [formGroup]="alterarSenhaFG"(ngSubmit)="onSubmit()">
+            <atm-text-editor #nomeCt id="tx-login" name="login"  [focus]="true" formControlName="login" >Nome:</atm-text-editor>
+            <atm-val-message [control]="alterarSenhaFG.get('login')">
+                Login é obrigatório
+            </atm-val-message>
+
+            <atm-text-editor id="tx-senha" [type]="'password'" name="senha" [feedback]="false" formControlName="senha">Senha:</atm-text-editor>
+            <atm-val-message [control]="alterarSenhaFG.get('senha')">
+                Senha é obrigatório
+            </atm-val-message>
+            
+            <atm-text-editor id="tx-nova-senha" [type]="'password'" name="novaSenha" formControlName="novaSenha">Nova senha:</atm-text-editor>
+            <atm-val-message [control]="alterarSenhaFG.get('novaSenha')">
+                É preciso informar a nova Senha
+            </atm-val-message>
+
+            <atm-text-editor id="tx-confirma-senha" [type]="'password'" name="confirmaSenha" [feedback]="false" formControlName="confirmaSenha">Confirmar Senha:</atm-text-editor>
+            <atm-val-message [control]="alterarSenhaFG.get('confirmaSenha')">
+                É preciso digitar a nova senha novamente
+            </atm-val-message>
+            <atm-val-message [valid]="senhaConfirmada">
+                Senhas não são iguais
+            </atm-val-message>
+
+            <atm-button id="btn-confirma" [submit]="true" [label]="'Confirma'" #btnSalvar></atm-button>
+        </form>
+    </div>
+</atm-component>

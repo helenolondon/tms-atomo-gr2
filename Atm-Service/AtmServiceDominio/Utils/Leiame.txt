@@ -1,0 +1,2 @@
+﻿Classes de auxílio
+Ex: MateUtils.cs StringUtils.cs

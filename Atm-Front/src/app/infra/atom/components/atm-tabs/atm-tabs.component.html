@@ -1,0 +1,22 @@
+<p-tabView>
+    <p-tabPanel [header]="header1" *ngIf="header1 != null">
+        <ng-content select="[tab1]">
+        </ng-content>
+    </p-tabPanel>
+    <p-tabPanel [header]="header2" *ngIf="header2 != null">
+        <ng-content select="[tab2]">
+        </ng-content>
+    </p-tabPanel>
+    <p-tabPanel [header]="header3" *ngIf="header3 != null" >
+        <ng-content select="[tab3]">
+        </ng-content>
+    </p-tabPanel>
+    <p-tabPanel [header]="header4" *ngIf="header4 != null">
+        <ng-content select="[tab4]">
+        </ng-content>
+    </p-tabPanel>
+    <p-tabPanel [header]="header5" *ngIf="header5 != null">
+        <ng-content select="[tab5]">
+        </ng-content>
+    </p-tabPanel>
+</p-tabView>

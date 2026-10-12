@@ -1,0 +1,20 @@
+
+<div class="content">
+    <label [ngClass]="{'number': tipo == 'number'}"><ng-content></ng-content></label>
+    <div id="input" *ngIf="tipo == 'text'">
+        <input type="text" [ngStyle]="style" [maxlength]="maxlength" pInputText [disabled]='disabled' [AtmFocus]="focus"
+         [(ngModel)]="value">
+    </div>
+    
+    <div id="input" *ngIf="tipo == 'number'">
+        <input type="text" [ngStyle]="style" [type]="'number'" style="text-align: right;" 
+         [maxlength]="maxlength" pInputText [disabled]='disabled' [AtmFocus]="focus"
+         [(ngModel)]="value">
+    </div>
+    
+    <div id="input" *ngIf="tipo == 'password'">
+        <input type="text" [ngStyle]="style" [maxlength]="maxlength"  [showPassword]="false"  [disabled]='disabled' 
+        [strongLabel]="'Forte'" [weakLabel]="'Fraca'" [AtmFocus]="focus" [mediumLabel]="'Média'" 
+        [promptLabel]="'Digite a senha'" pPassword [(ngModel)]="value" [feedback]="feedback">
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="content">
+    <label><ng-content></ng-content></label>
+    <div id="input">
+        <div class="ui-inputgroup" >
+            <p-inputMask [mask]="mask" [(ngModel)]="value" (onBlur)="onBlurEvent()" ></p-inputMask>
+            <button pButton type="button" (click)="onButtonClick(value)" [icon]="getIcon()" class="ui-button-warn"></button>      
+        </div>    
+    </div>
+</div>

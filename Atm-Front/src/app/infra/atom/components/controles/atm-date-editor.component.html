@@ -1,0 +1,7 @@
+<div id="content">
+    <label><ng-content></ng-content></label>
+    <div id="calendar">
+        <p-calendar [showIcon]="true" dateFormat="dd/mm/yy" [(ngModel)]="value" [style]="{'width':'100%'}" 
+        [disabled]="disabled" [AtmFocus]="focus" [inputStyle]="{'width':'calc(100% - 2.357em)'}"></p-calendar>
+    </div>
+</div>

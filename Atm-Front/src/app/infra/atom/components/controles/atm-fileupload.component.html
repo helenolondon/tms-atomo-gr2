@@ -1,0 +1,12 @@
+<p-fileUpload #fileUpload
+    [chooseLabel]="chooseLabel" 
+    mode="basic" 
+    auto="true" 
+    name="files"
+    [maxFileSize]="maxFileSize" 
+    [url]="postUrl" 
+    [multiple]="multiple" 
+    (onUpload)="_onUpload($event)" 
+    (onError)="_onError($event)" 
+    [headers]="headers">
+</p-fileUpload>

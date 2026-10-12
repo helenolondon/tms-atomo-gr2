@@ -1,0 +1,272 @@
+$button-border: solid 1px; 
+
+#conteudo{
+	width: 100%;
+	height: 100%;
+	background-image: url("../../../../../assets/imagens/atom-bg.png");
+	background-repeat: repeat;
+}
+
+p-table{
+	height: calc(100% - 50px);
+
+	td{
+		overflow: hidden;
+	}
+}
+
+#filtros-painel{
+	height: 100%;
+	overflow: auto;
+	font-size: 14px;
+	margin-top: 5px;
+	background: transparent;
+	
+	.header{
+		padding-left: 8px;
+		font-size: 1.2em;
+		font-weight: 300;
+	}
+	.content{
+		margin-top: 44px;
+	}
+
+	background-color: transparent;	
+}
+
+#painel-area-trabalho{
+	height: calc(100% - 10px);
+	overflow: hidden;
+	overflow-y: auto;
+	background-color: transparent;
+}
+
+#toolbar-direita{
+	float: right; 
+	white-space: nowrap;
+
+	outline: none;
+
+	button{
+		margin: 2px;
+	}
+}
+
+#titulo-manager{
+	padding-top: 6px;
+}
+
+.painel-filtro{
+	height: 100%; 
+	float: left;
+	margin-right: 0px;
+	background-color: #fafafa;
+	
+	overflow: hidden;
+		
+	transition: width 0.4s;
+	border: -1px solid #ddd;
+	width: 0px;
+
+	white-space: nowrap;
+
+	&.visivel{
+		transition-timing-function: ease;
+		transition: width 0.4s;
+		border-right: 1px solid #ddd;
+		margin-right: 5px;		
+		width: 250px;
+	}
+
+	.header{
+		width: calc(100% - 16px);
+		padding-top: 8px;
+	}
+
+	.content{
+		padding: 8px;
+	}
+}
+
+#filter-icon{
+	float: right;
+	transform: rotateY(180deg);
+}
+
+#atm-header{
+	width: 100%;
+	height: 32px;
+	margin-top: -12px;
+	margin-left: -12px;
+	padding-top: 25px;
+	padding-left: 8px;
+	color: #336699;
+	padding-bottom: 2px;
+	overflow: hidden;
+
+	.titulo{
+		margin-top: 37px;
+	}
+}
+
+#grid-header{
+	margin-top: 10px;
+	height: 45px;
+	white-space: nowrap;
+	border-color: #1976d2;
+	white-space: nowrap;
+
+	.toobar-button{
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		width: 25px;
+
+		&:hover{
+			background-color: rgb(245, 240, 240);
+			opacity: 0.7;
+		}
+	}
+
+	#filtro-btn{
+		color: #336699;
+		border-right: $button-border;
+		float: right;
+		font-size: 20px;
+		cursor: pointer;
+	}
+
+	#group-panel-btn{
+		color: #666666;
+		border-right: $button-border;
+		float: right;
+		font-size: 20px;
+		cursor: pointer;
+	}	
+}
+
+.buttongroups-container {
+    display: flex;
+    justify-content: center;
+	font-size: 16px;
+	margin-left: 3px;
+}
+
+/*
+  Formatação das colunas das estremidades
+*/
+#ptable tr .grid-btn {
+	text-align: center; 
+	width: 25px;
+	// padding-left: 20px;
+
+	&.selection-check{
+		padding-left: 10px;
+		width: 37px;
+	}
+}
+
+#ptable tr td:first-child{
+	padding-left: 8px;
+}
+
+#ptable tr td:last-child{
+	text-align: center; 
+	padding-left: 6px;
+}
+
+#ptable tr td i, tr th span i{
+	cursor: pointer;
+}
+
+ul{
+	max-width: 650px;
+	overflow: auto;
+}
+
+#cli-container{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.grid-item {
+    padding: 5px;
+    &:first-child{
+      padding-left: 0px;
+    }
+    
+    &:last-child{
+      padding-right: 0px;
+    }
+    
+    &.span-1-2{
+      grid-column: 1 / span 2;
+    }    
+    
+    &.span-1-3{
+      grid-column: 1 / span 3;
+    }    
+    
+    &.span-2-3{
+      grid-column: 2 / span 3;
+    }    
+    
+    &.span-5-3{
+      grid-column: 5 / span 3;
+    }    
+    
+    &.span-4-2{
+      grid-column: 4 / span 2;
+    }    
+    
+    &.span-5-2{
+      grid-column: 5 / span 2;
+    }    
+    
+    &.span-3-2{
+      grid-column: 3 / span 2;
+    }
+
+    &.offset-3-1{
+      grid-column: 3;
+    }
+    
+    &.no-padding{
+      padding: 0px;
+    }
+  }
+
+  .margin-top-5{
+    margin-top: 5px;
+  }
+  .margin-top-10{
+    margin-top: 10px;
+  }
+
+
+  .padding-top-23{
+    padding-top: 23px;
+  }  
+  
+  .padding-top-24{
+    padding-top: 24px;
+  }  
+  
+  .padding-top-25{
+    padding-top: 25px;
+  }
+
+  .text-right{
+    text-align: right;
+  }
+
+  .conf-label{
+	line-height: 35px;
+  }

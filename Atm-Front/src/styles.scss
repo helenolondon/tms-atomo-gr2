@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+html, body 
+{ 
+	height: 100%;	 
+}
+
+body { 
+	margin: 0;
+	font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif; 
+//	font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 17px;
+//	font-family: BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,
+	//Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+ }
+
+.mat-toolbar{
+	&.mat-primary{
+		background: #1976d2;
+		color:#fff;
+	}
+}
+
+%texto{
+	font-size: 0.9rem;
+}
+
+.texto-erro{
+	color: #fa165f;
+	@extend %texto;
+}
+
+.mat-drawer{
+	&.mat-drawer-side{
+		box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+	}
+}
+
+// Botão de pesquisa do botão pesquisar gerenciador
+.gp-submit-button{
+	margin-top: 10px;
+}

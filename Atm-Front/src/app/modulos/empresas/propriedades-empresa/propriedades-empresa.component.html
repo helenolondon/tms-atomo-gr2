@@ -1,0 +1,190 @@
+<atm-component>
+    <div id="cli-container">
+        <atm-tabs [headers]="['Detalhes do cliente']">
+            <form id="frm-cliente" [formGroup]="empresaForm" (ngSubmit)="onSubmit()" tab1>
+                <atm-fieldset [title]="'Dados do cliente'">
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <atm-text-editor #nomeCt id="tx-codigo" name="codigo" [focus]="false" formControlName="codigo">
+                                Código:</atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('codigo')">
+                                Código é obrigatório
+                            </atm-val-message>
+                        </div>
+
+                        <div class="grid-item">
+                            <atm-text-editor #nomeCt id="tx-nome" name="nome" [focus]="true" [maxlength]="200" formControlName="nomeFantasia">Nome:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('nomeFantasia')">
+                                Nome é obrigatório
+                            </atm-val-message>
+                        </div>
+                        
+                        <div class="grid-item">
+                            <atm-text-editor #nomeCt id="tx-responsavel" name="responsavel" [focus]="true" [maxlength]="200" 
+                                formControlName="responsavel">Responsável:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('responsavel')">
+                                Responsável é obrigatório
+                            </atm-val-message>
+                        </div>
+
+                        <div class="grid-item">
+                            <atm-date-editor name="dataCadastro" id="tx-data-cadastro" formControlName="dataCadastro">Data
+                                de cadastro:
+                            </atm-date-editor>
+                        </div>
+                    </div>
+                </atm-fieldset>
+                
+                <atm-fieldset [title]="'Pessoa jurídica'">
+                    <div class="grid-container-juridica">
+                        <div class="grid-item span-1-3">
+                            <atm-autocomplete name="txCnaePrincipal" id="cnaePrincipal" [results]="listaDeCnae" [key]="'codigoCnae'"
+                                [displayField]="'cnae'" (onSearch)="onBuscaCanes($event)" formControlName="cnaePrincipal">CNAE principal:</atm-autocomplete>
+                            <atm-val-message [control]="empresaForm.get('cnaePrincipal')">
+                                CNAE principal é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item span-4-2">
+                            <atm-text-editor id="txRazaoSocial" name="razaoSocial" [maxlength]="200" formControlName="razaoSocial">Razão social:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('razaoSocial')">
+                                CNPJ é obrigatório
+                            </atm-val-message>
+                        </div>
+                    </div>
+                    <div class="grid-container-juridica">
+                        <div class="grid-item">
+                            <atm-mask-editor id="tx-cnpj" name="cnpj" [focus]="false" mask="99.999.999/9999-99" formControlName="cnpj">CNPJ:
+                            </atm-mask-editor>
+                            <atm-val-message *ngIf="cnpj.errors?.required" [control]="cnpj">
+                                CNPJ é obrigatório
+                            </atm-val-message>
+                            <atm-val-message *ngIf="cnpj.errors?.cpfCnpjInvalido" [control]="cnpj">
+                                CNPJ inválido
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor id="tx-inscricaoMunicipal" name="inscricaoMunicipal" [focus]="false" [maxlength]="30" formControlName="inscricaoMunicipal">
+                                Inscrição municipal:</atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('inscricaoMunicipal')">
+                                Inscrição municipal é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor id="tx-inscricaoEstadual" name="inscricaoEstadual" [focus]="false" [maxlength]="30" formControlName="inscricaoEstadual">
+                                Inscrição estadual:</atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('inscricaoEstadual')">
+                                Inscrição estadual é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor id="tx-inscricaoSuframa" name="inscricaoSuframa" [focus]="false" [maxlength]="30" formControlName="inscricaoSuframa">
+                                Inscrição suframa:</atm-text-editor>
+                        </div>
+                        <div class="grid-item padding-top-25 text-right">
+                            <atm-checkbox id="ckMicroEmpresa" [label]="'Micro empresa'" name="microEmpresa" formControlName="microEmpresa">
+                                </atm-checkbox>
+                        </div>
+                    </div>
+                </atm-fieldset>
+                <atm-fieldset [title]="'Endereço'">
+                    <div class="grid-container-endereco">
+                        <div class="grid-item">
+                            <atm-textbutton [mask]="'99.999-999'" [icon]="'search'" (onBlur)="onBuscaCepBlur($event)" (onButtonClick)="onBuscaCepClick($event)"  name="tx-insc-estadual" id="txtCep"
+                                formControlName="cep">CEP:</atm-textbutton>
+                        </div>
+                        <div class="grid-item span-2-3">
+                            <atm-text-editor name="tx-logradouro" id="txtLogradouro" [maxlength]="300" formControlName="logradouro">
+                                Logradouro:</atm-text-editor>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor name="tx-complemento" id="txtComplemento" [maxlength]="100" formControlName="complemento">
+                                Complemento:</atm-text-editor>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor name="tx-numero" id="txtNumero" [maxlength]="10" formControlName="numero">Número:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('numero')">
+                                Número é obrigatório
+                            </atm-val-message>
+                        </div>
+                    </div>
+
+                    <div class="grid-container-endereco">
+                        <div class="grid-item">
+                            <atm-dropdown name="tx-uf" id="txUf" (onChange)="onUfchange($event)" [items]="listaDeUfs" formControlName="uf">UF:
+                            </atm-dropdown>
+                            <atm-val-message [control]="empresaForm.get('uf')">
+                                UF é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item span-2-3">
+                            <atm-dropdown name="tx-cidade" id="txCidade" [items]="listaDeCidades" (onChange)="onCidadeChange($event)" [disabled]="listaDeCidades.length == 1" formControlName="cidade">
+                                Cidade:</atm-dropdown>
+                            <atm-val-message [control]="empresaForm.get('cidade')">
+                                Cidade é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item span-5-2">
+                            <atm-dropdown name="tx-bairro" id="txBairro" [items]="listaDeBairros" [disabled]="listaDeBairros?.length == 1" formControlName="bairro">
+                                Bairro:</atm-dropdown>
+                            <atm-val-message [control]="empresaForm.get('bairro')">
+                                Bairro é obrigatório
+                            </atm-val-message>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <atm-fieldset [title]="'Informações adicionais'">
+                    <div class="grid-container-info">
+                        <div class="grid-item">
+                            <atm-text-editor name="tx-telefone" id="txTelefone" [maxlength]="30" formControlName="telefone">Telefone:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('telefone')">
+                                Telefone é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor name="tx-contato" id="txContato" [maxlength]="30" formControlName="contato">Contato:
+                            </atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('contato')">
+                                Contato é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item">
+                            <atm-text-editor name="tx-email" id="txEmail" [maxlength]="60" formControlName="email">Email:</atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('email')">
+                                Email é obrigatório
+                            </atm-val-message>
+                        </div>
+                    </div>
+                    <div class="grid-container-info">
+                        <div class="grid-item span-1-3">
+                            <atm-text-editor name="tx-observacoes" id="txObservacoes" [maxlength]="300" formControlName="observacoes">
+                                Observações:</atm-text-editor>
+                            <atm-val-message [control]="empresaForm.get('observacoes')">
+                                Observações é obrigatório
+                            </atm-val-message>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <!-- Validações do servidor -->
+                <atm-val-message [valid]="serverErros == null">
+                    {{serverErros}}
+                </atm-val-message>
+
+                <div class="container-botoes">
+                    <div class="grid-item no-padding margin-top-10">
+                        <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
+                    </div>
+                    <div class="grid-item offset-3-1 no-padding margin-top-10">
+                        <atm-button label="Salvar" [type]="'primary'" [submit]="true" ></atm-button>
+                    </div>
+                </div>
+            </form>
+        </atm-tabs>
+    </div>
+</atm-component>

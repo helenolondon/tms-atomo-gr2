@@ -1,0 +1,71 @@
+input{
+    width: 100%;
+    height: 33px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.prop-content{
+    margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 350px;
+}
+
+button{
+    width: 100%;
+    margin-top: 5px;
+}
+
+#usu-container {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 330px;
+    justify-content: space-evenly;
+
+    grid-template-rows: repeat(1, 30px);
+}
+
+#btn-salvar{
+    width: 100%;
+    margin-top: 10px;
+}
+
+atm-text-editor{
+    width: 100%;
+    
+}
+
+atm-date-editor{
+    width: 100%;        
+}
+
+#dadosRegistro{
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#dadosAdvogado{
+    margin-top: 15px;
+}
+
+#usu-container{
+    margin-top: 85px;
+}
+
+.container{
+    margin-bottom: 10px;
+}
+
+#container-doc{
+    background-color: red;
+    width: 100%;
+
+    div{
+        float: left;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+}

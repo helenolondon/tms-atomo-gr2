@@ -1,0 +1,1 @@
+﻿Objetos de domínio tem a responsabilidade de manipular, validar e manter a integridade dos dados.
