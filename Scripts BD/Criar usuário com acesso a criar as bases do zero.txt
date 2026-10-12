@@ -1,0 +1,3 @@
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;E ON *.* TO 'root'@'%' 
+FLUSH PRIVILEGES;
+Restart MySQL Service.

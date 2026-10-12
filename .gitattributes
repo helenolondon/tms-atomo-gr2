@@ -1,0 +1,2 @@
+Scripts[[:space:]]BD/Insere[[:space:]]dados[[:space:]]cep.sql filter=lfs diff=lfs merge=lfs -text
+Scripts[[:space:]]BD/*.sql filter=lfs diff=lfs merge=lfs -text
