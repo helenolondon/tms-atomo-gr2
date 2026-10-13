@@ -35,6 +35,7 @@ namespace AtmServiceInfra
         private IClientesRepositorio clientesRepositorio;
         private IEmpresasRepositorio empresasRepositorio;
         private IMarcasRepositorio marcasRepositorio;
+        private AtmServiceInfra.ProdutoTipoAgressividades.IProdutoTipoAgressividadeRepositorio produtoTipoAgressividadesRepositorio;
         private IProdutoTiposRepositorio produtoTiposRepositorio;
 
         public Repositorios(IConfiguration configuration)
@@ -222,6 +223,19 @@ namespace AtmServiceInfra
                 }
 
                 return this.marcasRepositorio;
+            }
+        }
+
+        public AtmServiceInfra.ProdutoTipoAgressividades.IProdutoTipoAgressividadeRepositorio ProdutoTipoAgressividadesRepositorio
+        {
+            get
+            {
+                if (this.produtoTipoAgressividadesRepositorio == null)
+                {
+                    this.produtoTipoAgressividadesRepositorio = new AtmServiceInfra.ProdutoTipoAgressividades.ProdutoTipoAgressividadeRepositorio(_context);
+                }
+
+                return this.produtoTipoAgressividadesRepositorio;
             }
         }
 

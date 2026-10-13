@@ -18,6 +18,8 @@ import { RegistrarSeComponent } from './modulos/usuarios/registrar-se/registrar-
 import { GerenciadorEmpresasComponent } from './modulos/empresas/gerenciador-empresas/gerenciador-empresas.component';
 import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-empresa/propriedades-empresa.component';
 import { GerenciadorMarcasComponent } from './modulos/marcas/gerenciador-marcas/gerenciador-marcas.component';
+import { GerenciadorProdutoTiposComponent } from './modulos/produtotipos/gerenciador-produto-tipos/gerenciador-produto-tipos.component';
+import { GerenciadorProdutoTipoAgressividadesComponent } from './modulos/produtotipoagressividades/gerenciador-produto-tipo-agressividades/gerenciador-produto-tipo-agressividades.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {id: "Login"}},
@@ -57,6 +59,18 @@ const routes: Routes = [
   {
     path: 'marcas',
     component: GerenciadorMarcasComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'produtotipos',
+    component: GerenciadorProdutoTiposComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'produtotipoagressividade',
+    component: GerenciadorProdutoTipoAgressividadesComponent,
     canActivate: [AutenticaGuard]
   },
 

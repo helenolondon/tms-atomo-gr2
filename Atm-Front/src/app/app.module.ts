@@ -28,6 +28,10 @@ import { GerenciadorEmpresasComponent } from './modulos/empresas/gerenciador-emp
 import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-empresa/propriedades-empresa.component';
 import { GerenciadorMarcasComponent } from './modulos/marcas/gerenciador-marcas/gerenciador-marcas.component';
 import { PropriedadesMarcaComponent } from './modulos/marcas/propriedades-marca/propriedades-marca.component';
+import { GerenciadorProdutoTiposComponent } from './modulos/produtotipos/gerenciador-produto-tipos/gerenciador-produto-tipos.component';
+import { PropriedadesProdutoTipoComponent } from './modulos/produtotipos/propriedades-produto-tipo/propriedades-produto-tipo.component';
+import { GerenciadorProdutoTipoAgressividadesComponent } from './modulos/produtotipoagressividades/gerenciador-produto-tipo-agressividades/gerenciador-produto-tipo-agressividades.component';
+import { PropriedadesProdutoTipoAgressividadeComponent } from './modulos/produtotipoagressividades/propriedades-produto-tipo-agressividade/propriedades-produto-tipo-agressividade.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +47,16 @@ import { PropriedadesMarcaComponent } from './modulos/marcas/propriedades-marca/
     GerenciadorEmpresasComponent,
     PropriedadesEmpresaComponent,
     GerenciadorMarcasComponent,
-    PropriedadesMarcaComponent
+    PropriedadesMarcaComponent,
+    GerenciadorProdutoTiposComponent,
+    PropriedadesProdutoTipoComponent,
+    GerenciadorProdutoTipoAgressividadesComponent,
+    PropriedadesProdutoTipoAgressividadeComponent
   ],
   entryComponents: [
-    PropriedadesMarcaComponent
+    PropriedadesMarcaComponent,
+    PropriedadesProdutoTipoComponent,
+    PropriedadesProdutoTipoAgressividadeComponent
   ],
   imports: [
     BrowserModule,    

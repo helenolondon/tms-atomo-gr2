@@ -5,6 +5,7 @@ using AtmService.Empresas;
 using AtmService.Enderecos;
 using AtmService.Fiscal;
 using AtmService.Marcas;
+using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Seguranca;
 using AtmService.Usuarios;
@@ -28,6 +29,7 @@ namespace AtmService
         private IClientesService clientesService;
         private IEmpresasService empresasService;
         private IMarcasService marcasService;
+        private IProdutoTipoAgressividadesService produtoTipoAgressividadesService;
         private IProdutoTiposService produtoTiposService;
 
         public AtmServices(IConfiguration configuration)
@@ -162,6 +164,19 @@ namespace AtmService
                 }
 
                 return this.marcasService;
+            }
+        }
+
+        public IProdutoTipoAgressividadesService ProdutoTipoAgressividadesService
+        {
+            get
+            {
+                if (this.produtoTipoAgressividadesService == null)
+                {
+                    this.produtoTipoAgressividadesService = new ProdutoTipoAgressividadesService(dom.ProdutoTipoAgressividadesOD);
+                }
+
+                return this.produtoTipoAgressividadesService;
             }
         }
 

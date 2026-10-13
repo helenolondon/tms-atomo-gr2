@@ -6,7 +6,7 @@ namespace AtmApi.Controllers.ProdutoTipos
 {
     [Route("api/produtotipos")]
     [ApiController]
-    //[AutorizarUsuarioLogado]
+    [AutorizarUsuarioLogado]
     public class ProdutoTiposController : AtmController
     {
         [HttpGet]

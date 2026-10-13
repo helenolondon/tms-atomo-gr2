@@ -16,6 +16,7 @@ using AtmServiceInfra.Clientes.PrecosTarefas;
 using AtmServiceInfra.Arquivos;
 using AtmServiceInfra.Empresas;
 using AtmServiceInfra.Marcas;
+using AtmServiceInfra.ProdutoTipoAgressividades;
 using AtmServiceInfra.ProdutoTipos;
 
 namespace AtmServiceInfra
@@ -35,6 +36,7 @@ namespace AtmServiceInfra
         IClientesRepositorio ClientesRepositorio { get; }
         IEmpresasRepositorio EmpresasRepositorio { get; }
         IMarcasRepositorio MarcasRepositorio { get; }
+        AtmServiceInfra.ProdutoTipoAgressividades.IProdutoTipoAgressividadeRepositorio ProdutoTipoAgressividadesRepositorio { get; }
         IProdutoTiposRepositorio ProdutoTiposRepositorio { get; }
 
         void Salvar();

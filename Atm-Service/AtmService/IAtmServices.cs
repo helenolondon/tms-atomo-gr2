@@ -5,6 +5,7 @@ using AtmService.Empresas;
 using AtmService.Enderecos;
 using AtmService.Fiscal;
 using AtmService.Marcas;
+using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Seguranca;
 using AtmService.Usuarios;
@@ -23,6 +24,7 @@ namespace AtmService
         IEmpresasService EmpresasService { get; }
 
         IMarcasService MarcasService { get; }
+        IProdutoTipoAgressividadesService ProdutoTipoAgressividadesService { get; }
         IProdutoTiposService ProdutoTiposService { get; }
 
         /// <summary>

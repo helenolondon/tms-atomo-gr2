@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="produtoTipos"
+    [colunas]="colunas"
+    [titulo]="'TIPOS DE PRODUTO'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>

@@ -2,6 +2,14 @@
 
 Este documento descreve o passo a passo utilizado para criar a feature `Marcas` e deve ser seguido como padrão para criação de **qualquer nova API** na solução `Atm-Service`.
 
+## Diretrizes de execução (otimização)
+
+- Usar respostas curtas e objetivas para reduzir consumo de tokens.
+- Evitar repetição de contexto já conhecido.
+- Reutilizar padrões já existentes da solução sem reexplicar blocos completos quando não for necessário.
+- **Não criar arquivos `.sql`** durante a implementação da API.
+- Quando necessário, apenas informar o modelo esperado para o banco, sem gerar script.
+
 A arquitetura da solução é dividida em camadas:
 
 - `AtmServicePersistencia` (Infra / Repositórios / ODP - Objetos de Persistência / EF)

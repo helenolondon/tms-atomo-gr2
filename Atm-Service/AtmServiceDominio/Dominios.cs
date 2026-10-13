@@ -10,6 +10,7 @@ using AtmServiceDominio.ObjetosDeDominio.Estados;
 using AtmServiceDominio.ObjetosDeDominio.Fiscal;
 using AtmServiceDominio.ObjetosDeDominio.Logradouros;
 using AtmServiceDominio.ObjetosDeDominio.Marcas;
+using AtmServiceDominio.ObjetosDeDominio.ProdutoTipoAgressividades;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipos;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
@@ -39,6 +40,7 @@ namespace AtmServiceDominio
         ISistemaOD sistemaOD = null;
         IEmpresasOD empresasOD = null;
         IMarcasOD marcasOD = null;
+        IProdutoTipoAgressividadeOD produtoTipoAgressividadesOD = null;
         IProdutoTiposOD produtoTiposOD = null;
 
         public Dominios(IConfiguration configuration)
@@ -267,6 +269,21 @@ namespace AtmServiceDominio
             }
         }
 
+        public IProdutoTipoAgressividadeOD ProdutoTipoAgressividadesOD
+        {
+            get
+            {
+                if (produtoTipoAgressividadesOD == null)
+                {
+                    produtoTipoAgressividadesOD = new ProdutoTipoAgressividadesOD(reps.ProdutoTipoAgressividadesRepositorio);
+                    produtoTipoAgressividadesOD.NomeSingular = "Tipo de produto agressividade";
+                    produtoTipoAgressividadesOD.NomePlural = "Tipos de produto agressividade";
+                }
+
+                return produtoTipoAgressividadesOD;
+            }
+        }
+
         public IProdutoTiposOD ProdutoTiposOD
         {
             get
@@ -281,5 +298,6 @@ namespace AtmServiceDominio
                 return produtoTiposOD;
             }
         }
+
     }
 }

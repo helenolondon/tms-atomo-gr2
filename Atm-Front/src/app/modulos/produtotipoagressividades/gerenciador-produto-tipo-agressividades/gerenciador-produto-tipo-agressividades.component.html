@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="produtoTipoAgressividades"
+    [colunas]="colunas"
+    [titulo]="'TIPO DE AGRESSIVIDADE'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>
