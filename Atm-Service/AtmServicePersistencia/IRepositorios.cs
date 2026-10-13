@@ -18,6 +18,7 @@ using AtmServiceInfra.Empresas;
 using AtmServiceInfra.Marcas;
 using AtmServiceInfra.ProdutoTipoAgressividades;
 using AtmServiceInfra.ProdutoTipos;
+using AtmServiceInfra.UnidadesDeMedida;
 
 namespace AtmServiceInfra
 {
@@ -38,6 +39,7 @@ namespace AtmServiceInfra
         IMarcasRepositorio MarcasRepositorio { get; }
         AtmServiceInfra.ProdutoTipoAgressividades.IProdutoTipoAgressividadeRepositorio ProdutoTipoAgressividadesRepositorio { get; }
         IProdutoTiposRepositorio ProdutoTiposRepositorio { get; }
+        IUnidadesDeMedidaRepositorio UnidadesDeMedidaRepositorio { get; }
 
         void Salvar();
     }

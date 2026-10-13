@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="unidadesDeMedida"
+    [colunas]="colunas"
+    [titulo]="'UNIDADES DE MEDIDA'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>

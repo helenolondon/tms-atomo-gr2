@@ -8,6 +8,7 @@ using AtmService.Marcas;
 using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Seguranca;
+using AtmService.UnidadesDeMedida;
 using AtmService.Usuarios;
 using AtmServiceDominio;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,7 @@ namespace AtmService
         private IMarcasService marcasService;
         private IProdutoTipoAgressividadesService produtoTipoAgressividadesService;
         private IProdutoTiposService produtoTiposService;
+        private IUnidadesDeMedidaService unidadesDeMedidaService;
 
         public AtmServices(IConfiguration configuration)
         {
@@ -190,6 +192,19 @@ namespace AtmService
                 }
 
                 return this.produtoTiposService;
+            }
+        }
+
+        public IUnidadesDeMedidaService UnidadesDeMedidaService
+        {
+            get
+            {
+                if (this.unidadesDeMedidaService == null)
+                {
+                    this.unidadesDeMedidaService = new UnidadesDeMedidaService(dom.UnidadesDeMedidaOD);
+                }
+
+                return this.unidadesDeMedidaService;
             }
         }
     }

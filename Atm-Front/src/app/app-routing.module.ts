@@ -20,6 +20,7 @@ import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-em
 import { GerenciadorMarcasComponent } from './modulos/marcas/gerenciador-marcas/gerenciador-marcas.component';
 import { GerenciadorProdutoTiposComponent } from './modulos/produtotipos/gerenciador-produto-tipos/gerenciador-produto-tipos.component';
 import { GerenciadorProdutoTipoAgressividadesComponent } from './modulos/produtotipoagressividades/gerenciador-produto-tipo-agressividades/gerenciador-produto-tipo-agressividades.component';
+import { GerenciadorUnidadesDeMedidaComponent } from './modulos/unidadesdemedida/gerenciador-unidades-de-medida/gerenciador-unidades-de-medida.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {id: "Login"}},
@@ -71,6 +72,12 @@ const routes: Routes = [
   {
     path: 'produtotipoagressividade',
     component: GerenciadorProdutoTipoAgressividadesComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'unidadesdemedida',
+    component: GerenciadorUnidadesDeMedidaComponent,
     canActivate: [AutenticaGuard]
   },
 

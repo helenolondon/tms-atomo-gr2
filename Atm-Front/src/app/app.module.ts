@@ -32,6 +32,8 @@ import { GerenciadorProdutoTiposComponent } from './modulos/produtotipos/gerenci
 import { PropriedadesProdutoTipoComponent } from './modulos/produtotipos/propriedades-produto-tipo/propriedades-produto-tipo.component';
 import { GerenciadorProdutoTipoAgressividadesComponent } from './modulos/produtotipoagressividades/gerenciador-produto-tipo-agressividades/gerenciador-produto-tipo-agressividades.component';
 import { PropriedadesProdutoTipoAgressividadeComponent } from './modulos/produtotipoagressividades/propriedades-produto-tipo-agressividade/propriedades-produto-tipo-agressividade.component';
+import { GerenciadorUnidadesDeMedidaComponent } from './modulos/unidadesdemedida/gerenciador-unidades-de-medida/gerenciador-unidades-de-medida.component';
+import { PropriedadesUnidadeDeMedidaComponent } from './modulos/unidadesdemedida/propriedades-unidade-de-medida/propriedades-unidade-de-medida.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +53,15 @@ import { PropriedadesProdutoTipoAgressividadeComponent } from './modulos/produto
     GerenciadorProdutoTiposComponent,
     PropriedadesProdutoTipoComponent,
     GerenciadorProdutoTipoAgressividadesComponent,
-    PropriedadesProdutoTipoAgressividadeComponent
+    PropriedadesProdutoTipoAgressividadeComponent,
+    GerenciadorUnidadesDeMedidaComponent,
+    PropriedadesUnidadeDeMedidaComponent
   ],
   entryComponents: [
     PropriedadesMarcaComponent,
     PropriedadesProdutoTipoComponent,
-    PropriedadesProdutoTipoAgressividadeComponent
+    PropriedadesProdutoTipoAgressividadeComponent,
+    PropriedadesUnidadeDeMedidaComponent
   ],
   imports: [
     BrowserModule,    

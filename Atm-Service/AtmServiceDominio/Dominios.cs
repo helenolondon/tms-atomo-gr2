@@ -14,6 +14,7 @@ using AtmServiceDominio.ObjetosDeDominio.ProdutoTipoAgressividades;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipos;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
+using AtmServiceDominio.ObjetosDeDominio.UnidadesDeMedida;
 using AtmServiceDominio.ObjetosDeDominio.Usuarios;
 using AtmServiceInfra;
 using Microsoft.Extensions.Configuration;
@@ -42,6 +43,7 @@ namespace AtmServiceDominio
         IMarcasOD marcasOD = null;
         IProdutoTipoAgressividadeOD produtoTipoAgressividadesOD = null;
         IProdutoTiposOD produtoTiposOD = null;
+        IUnidadesDeMedidaOD unidadesDeMedidaOD = null;
 
         public Dominios(IConfiguration configuration)
         {
@@ -296,6 +298,21 @@ namespace AtmServiceDominio
                 }
 
                 return produtoTiposOD;
+            }
+        }
+
+        public IUnidadesDeMedidaOD UnidadesDeMedidaOD
+        {
+            get
+            {
+                if (unidadesDeMedidaOD == null)
+                {
+                    unidadesDeMedidaOD = new UnidadesDeMedidaOD(reps.UnidadesDeMedidaRepositorio);
+                    unidadesDeMedidaOD.NomeSingular = "Unidade de medida";
+                    unidadesDeMedidaOD.NomePlural = "Unidades de medida";
+                }
+
+                return unidadesDeMedidaOD;
             }
         }
 

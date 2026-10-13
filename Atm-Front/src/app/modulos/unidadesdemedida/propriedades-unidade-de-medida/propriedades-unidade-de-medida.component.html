@@ -1,0 +1,49 @@
+<atm-component class="property-screen">
+    <div class="unidade-de-medida-container">
+        <atm-tabs [headers]="['Dados da unidade de medida']">
+            <form [formGroup]="unidadeDeMedidaForm" (ngSubmit)="onSubmit()" tab1>
+                <atm-fieldset [title]="'Propriedades'">
+                    <div class="grid-container">
+                        <div class="grid-item codigo">
+                            <atm-text-editor id="tx-cod-unidade-de-medida" name="codUnidadeDeMedida"
+                                formControlName="codUnidadeDeMedida">
+                                Código:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item nome">
+                            <atm-text-editor id="tx-nome-unidade-de-medida" name="nome" [focus]="true"
+                                [maxlength]="250" formControlName="nome">
+                                Nome:
+                            </atm-text-editor>
+                            <atm-val-message [control]="unidadeDeMedidaForm.get('nome')">
+                                Nome é obrigatório e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item unidade">
+                            <atm-text-editor id="tx-unidade-medida" name="unidade" [maxlength]="3"
+                                formControlName="unidade">
+                                Unidade:
+                            </atm-text-editor>
+                            <atm-val-message [control]="unidadeDeMedidaForm.get('unidade')">
+                                Unidade é obrigatória e deve ter no máximo 3 caracteres
+                            </atm-val-message>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <atm-val-message [valid]="serverErros == null">
+                    {{serverErros}}
+                </atm-val-message>
+
+                <div class="form-actions">
+                    <div class="form-action">
+                        <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
+                    </div>
+                    <div class="form-action">
+                        <atm-button label="Salvar" [type]="'primary'" [submit]="true"></atm-button>
+                    </div>
+                </div>
+            </form>
+        </atm-tabs>
+    </div>
+</atm-component>
