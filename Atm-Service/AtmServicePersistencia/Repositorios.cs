@@ -11,6 +11,7 @@ using AtmServiceInfra.Erros;
 using AtmServiceInfra.Estados;
 using AtmServiceInfra.Logradouros;
 using AtmServiceInfra.Marcas;
+using AtmServiceInfra.ProdutoTipos;
 using AtmServiceInfra.Seguranca;
 using Microsoft.Extensions.Configuration;
 
@@ -34,6 +35,7 @@ namespace AtmServiceInfra
         private IClientesRepositorio clientesRepositorio;
         private IEmpresasRepositorio empresasRepositorio;
         private IMarcasRepositorio marcasRepositorio;
+        private IProdutoTiposRepositorio produtoTiposRepositorio;
 
         public Repositorios(IConfiguration configuration)
         {
@@ -220,6 +222,19 @@ namespace AtmServiceInfra
                 }
 
                 return this.marcasRepositorio;
+            }
+        }
+
+        public IProdutoTiposRepositorio ProdutoTiposRepositorio
+        {
+            get
+            {
+                if (this.produtoTiposRepositorio == null)
+                {
+                    this.produtoTiposRepositorio = new ProdutoTiposRepositorio(_context);
+                }
+
+                return this.produtoTiposRepositorio;
             }
         }
 
