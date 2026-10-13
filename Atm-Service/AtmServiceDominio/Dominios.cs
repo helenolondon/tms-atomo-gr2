@@ -14,6 +14,7 @@ using AtmServiceDominio.ObjetosDeDominio.ProdutoTipoAgressividades;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipos;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
+using AtmServiceDominio.ObjetosDeDominio.TipoVeiculos;
 using AtmServiceDominio.ObjetosDeDominio.UnidadesDeMedida;
 using AtmServiceDominio.ObjetosDeDominio.Usuarios;
 using AtmServiceInfra;
@@ -44,6 +45,7 @@ namespace AtmServiceDominio
         IProdutoTipoAgressividadeOD produtoTipoAgressividadesOD = null;
         IProdutoTiposOD produtoTiposOD = null;
         IUnidadesDeMedidaOD unidadesDeMedidaOD = null;
+        ITipoVeiculosOD tipoVeiculosOD = null;
 
         public Dominios(IConfiguration configuration)
         {
@@ -313,6 +315,21 @@ namespace AtmServiceDominio
                 }
 
                 return unidadesDeMedidaOD;
+            }
+        }
+
+        public ITipoVeiculosOD TipoVeiculosOD
+        {
+            get
+            {
+                if (tipoVeiculosOD == null)
+                {
+                    tipoVeiculosOD = new TipoVeiculosOD(reps.TipoVeiculosRepositorio);
+                    tipoVeiculosOD.NomeSingular = "Tipo de veículo";
+                    tipoVeiculosOD.NomePlural = "Tipos de veículo";
+                }
+
+                return tipoVeiculosOD;
             }
         }
 

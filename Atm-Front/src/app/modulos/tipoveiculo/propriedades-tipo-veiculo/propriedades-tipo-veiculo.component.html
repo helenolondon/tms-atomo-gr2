@@ -1,0 +1,40 @@
+<atm-component class="property-screen">
+    <div class="tipo-veiculo-container">
+        <atm-tabs [headers]="['Dados do tipo de veículo']">
+            <form [formGroup]="tipoVeiculoForm" (ngSubmit)="onSubmit()" tab1>
+                <atm-fieldset [title]="'Propriedades'">
+                    <div class="grid-container">
+                        <div class="grid-item codigo">
+                            <atm-text-editor id="tx-cod-tipo-veiculo" name="codTipoVeiculo"
+                                formControlName="codTipoVeiculo">
+                                Código:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item descricao">
+                            <atm-text-editor id="tx-descricao-tipo-veiculo" name="descricao" [focus]="true"
+                                [maxlength]="250" formControlName="descricao">
+                                Descrição:
+                            </atm-text-editor>
+                            <atm-val-message [control]="tipoVeiculoForm.get('descricao')">
+                                Descrição é obrigatória e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <atm-val-message [valid]="serverErros == null">
+                    {{serverErros}}
+                </atm-val-message>
+
+                <div class="form-actions">
+                    <div class="form-action">
+                        <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
+                    </div>
+                    <div class="form-action">
+                        <atm-button label="Salvar" [type]="'primary'" [submit]="true"></atm-button>
+                    </div>
+                </div>
+            </form>
+        </atm-tabs>
+    </div>
+</atm-component>

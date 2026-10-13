@@ -8,6 +8,7 @@ using AtmService.Marcas;
 using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Seguranca;
+using AtmService.TipoVeiculos;
 using AtmService.UnidadesDeMedida;
 using AtmService.Usuarios;
 using AtmServiceDominio;
@@ -33,6 +34,7 @@ namespace AtmService
         private IProdutoTipoAgressividadesService produtoTipoAgressividadesService;
         private IProdutoTiposService produtoTiposService;
         private IUnidadesDeMedidaService unidadesDeMedidaService;
+        private ITipoVeiculosService tipoVeiculosService;
 
         public AtmServices(IConfiguration configuration)
         {
@@ -205,6 +207,19 @@ namespace AtmService
                 }
 
                 return this.unidadesDeMedidaService;
+            }
+        }
+
+        public ITipoVeiculosService TipoVeiculosService
+        {
+            get
+            {
+                if (this.tipoVeiculosService == null)
+                {
+                    this.tipoVeiculosService = new TipoVeiculosService(dom.TipoVeiculosOD);
+                }
+
+                return this.tipoVeiculosService;
             }
         }
     }

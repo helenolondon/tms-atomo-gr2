@@ -13,6 +13,7 @@ using AtmServiceInfra.Logradouros;
 using AtmServiceInfra.Marcas;
 using AtmServiceInfra.ProdutoTipos;
 using AtmServiceInfra.Seguranca;
+using AtmServiceInfra.TipoVeiculos;
 using AtmServiceInfra.UnidadesDeMedida;
 using Microsoft.Extensions.Configuration;
 
@@ -39,6 +40,7 @@ namespace AtmServiceInfra
         private AtmServiceInfra.ProdutoTipoAgressividades.IProdutoTipoAgressividadeRepositorio produtoTipoAgressividadesRepositorio;
         private IProdutoTiposRepositorio produtoTiposRepositorio;
         private IUnidadesDeMedidaRepositorio unidadesDeMedidaRepositorio;
+        private ITipoVeiculosRepositorio tipoVeiculosRepositorio;
 
         public Repositorios(IConfiguration configuration)
         {
@@ -264,6 +266,19 @@ namespace AtmServiceInfra
                 }
 
                 return this.unidadesDeMedidaRepositorio;
+            }
+        }
+
+        public ITipoVeiculosRepositorio TipoVeiculosRepositorio
+        {
+            get
+            {
+                if (this.tipoVeiculosRepositorio == null)
+                {
+                    this.tipoVeiculosRepositorio = new TipoVeiculosRepositorio(_context);
+                }
+
+                return this.tipoVeiculosRepositorio;
             }
         }
 

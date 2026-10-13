@@ -8,6 +8,7 @@ using AtmService.Marcas;
 using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Seguranca;
+using AtmService.TipoVeiculos;
 using AtmService.UnidadesDeMedida;
 using AtmService.Usuarios;
 
@@ -28,6 +29,7 @@ namespace AtmService
         IProdutoTipoAgressividadesService ProdutoTipoAgressividadesService { get; }
         IProdutoTiposService ProdutoTiposService { get; }
         IUnidadesDeMedidaService UnidadesDeMedidaService { get; }
+        ITipoVeiculosService TipoVeiculosService { get; }
 
         /// <summary>
         /// Salva operações em memória.
