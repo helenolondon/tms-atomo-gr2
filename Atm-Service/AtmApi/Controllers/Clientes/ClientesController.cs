@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AtmApi.Controllers.Autenticacao.ActionFilters;
-using AtmApi.Controllers.Clientes.Requests;
 using AtmApi.Controllers.Clientes.Responses;
-using AtmApi.Controllers.Contatos.Requests;
 using AtmService.Clientes.Requests;
 using AtmService.ODT;
-using DocumentFormat.OpenXml.Office2016.Excel;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AtmApi.Controllers.Clientes
@@ -134,5 +128,6 @@ namespace AtmApi.Controllers.Clientes
         {
             return Ok(this.services.ClientesService.ListarEstadosCivis());
         }
-    }
-}
+
+            }
+        }

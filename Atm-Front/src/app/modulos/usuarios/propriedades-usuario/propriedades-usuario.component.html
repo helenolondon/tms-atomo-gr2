@@ -31,11 +31,6 @@
         grid-template-rows: repeat(1, 30px);
     }
 
-    #btn-salvar{
-        width: 100%;
-        margin-top: 10px;
-    }
-
     atm-text-editor{
         width: 100%;
         
@@ -46,7 +41,7 @@
     }
 </style>
 
-<atm-component>
+<atm-component class="property-screen">
     <div id="usu-container">
         <div id="col1">
             <form id="frm-usuario" [formGroup]="usuariosForm"  (ngSubmit)="onSubmit()">
@@ -83,7 +78,11 @@
 
                 <atm-server-response-error [erros]="erros"></atm-server-response-error>
 
-                <atm-button id="btn-salvar" [submit]="true" [label]="'Salvar'" #btnSalvar></atm-button>
+                <div class="form-actions form-actions-end">
+                    <div class="form-action">
+                        <atm-button [submit]="true" [label]="'Salvar'" #btnSalvar></atm-button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

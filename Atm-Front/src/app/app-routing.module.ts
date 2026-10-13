@@ -17,6 +17,7 @@ import { ClientesTiposDePessoaResolver } from './modulos/clientes/data-resolvers
 import { RegistrarSeComponent } from './modulos/usuarios/registrar-se/registrar-se.component';
 import { GerenciadorEmpresasComponent } from './modulos/empresas/gerenciador-empresas/gerenciador-empresas.component';
 import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-empresa/propriedades-empresa.component';
+import { GerenciadorMarcasComponent } from './modulos/marcas/gerenciador-marcas/gerenciador-marcas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {id: "Login"}},
@@ -51,6 +52,12 @@ const routes: Routes = [
     resolve: {
       listaSitucoesDaInscricaoEstadual: SituacoesInscricaoEstadualResolver
     }
+  },
+
+  {
+    path: 'marcas',
+    component: GerenciadorMarcasComponent,
+    canActivate: [AutenticaGuard]
   },
 
   {

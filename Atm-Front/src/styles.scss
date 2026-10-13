@@ -38,3 +38,32 @@ body {
 .gp-submit-button{
 	margin-top: 10px;
 }
+
+.form-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.form-actions-end {
+	justify-content: flex-end;
+}
+
+.form-action {
+	flex: 0 0 160px;
+}
+
+.form-action atm-button {
+	display: block;
+}
+
+atm-component.property-screen {
+	display: block;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+atm-fieldset .ui-fieldset-content > :last-child > .grid-item:last-child {
+	padding-bottom: 10px;
+}

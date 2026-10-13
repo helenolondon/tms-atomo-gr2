@@ -42,12 +42,6 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-.container-botoes{
-  display: grid;  
-  grid-template-columns: 20% 30% 50%;
-  padding-left: 0px;
-  padding-right: 0px;
-}
 .grid-item {
     padding: 5px;
     &:first-child{

@@ -26,6 +26,7 @@ export class SideMenuComponent implements OnInit {
       .AddItem(new AtmMenuItem("CADASTROS")
         .AddItem(new AtmMenuItem("Empresas", null, "empresas"))
         .AddItem(new AtmMenuItem("Clientes", null, "clientes"))
+        .AddItem(new AtmMenuItem("Marcas", null, "marcas"))
       )
       .AddItem(new AtmMenuItem("CONFIGURAÇÕES")
         .AddItem(new AtmMenuItem("Usuários")

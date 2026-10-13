@@ -1,0 +1,7 @@
+<div class="content">
+    <label [attr.for]="id"><ng-content></ng-content></label>
+    <div class="input">
+        <textarea pInputTextarea [id]="id" [rows]="rows" [maxlength]="maxlength" [ngStyle]="inputStyle"
+            [disabled]="disabled" [AtmFocus]="focus" [(ngModel)]="value" (blur)="onBlur()"></textarea>
+    </div>
+</div>

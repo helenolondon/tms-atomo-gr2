@@ -4,6 +4,7 @@ using AtmService.Contatos;
 using AtmService.Empresas;
 using AtmService.Enderecos;
 using AtmService.Fiscal;
+using AtmService.Marcas;
 using AtmService.Seguranca;
 using AtmService.Usuarios;
 using AtmServiceDominio;
@@ -25,6 +26,7 @@ namespace AtmService
         private IFiscalService fiscalService;
         private IClientesService clientesService;
         private IEmpresasService empresasService;
+        private IMarcasService marcasService;
 
         public AtmServices(IConfiguration configuration)
         {
@@ -145,6 +147,19 @@ namespace AtmService
                 }
 
                 return this.empresasService;
+            }
+        }
+
+        public IMarcasService MarcasService
+        {
+            get
+            {
+                if (this.marcasService == null)
+                {
+                    this.marcasService = new MarcasService(dom.MarcasOD);
+                }
+
+                return this.marcasService;
             }
         }
     }

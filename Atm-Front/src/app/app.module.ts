@@ -26,6 +26,8 @@ import { RegistrarSeComponent } from './modulos/usuarios/registrar-se/registrar-
 import { BotaoPagamentoComponent } from './modulos/usuarios/registrar-se/botao-pagamento/botao-pagamento.component';
 import { GerenciadorEmpresasComponent } from './modulos/empresas/gerenciador-empresas/gerenciador-empresas.component';
 import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-empresa/propriedades-empresa.component';
+import { GerenciadorMarcasComponent } from './modulos/marcas/gerenciador-marcas/gerenciador-marcas.component';
+import { PropriedadesMarcaComponent } from './modulos/marcas/propriedades-marca/propriedades-marca.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,12 @@ import { PropriedadesEmpresaComponent } from './modulos/empresas/propriedades-em
     RegistrarSeComponent,
     BotaoPagamentoComponent,
     GerenciadorEmpresasComponent,
-    PropriedadesEmpresaComponent
+    PropriedadesEmpresaComponent,
+    GerenciadorMarcasComponent,
+    PropriedadesMarcaComponent
+  ],
+  entryComponents: [
+    PropriedadesMarcaComponent
   ],
   imports: [
     BrowserModule,    

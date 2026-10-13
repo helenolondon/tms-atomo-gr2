@@ -24,6 +24,7 @@ namespace AtmServiceInfra.EF
         public DbSet<ClienteODP> Clientes { get; set; }
         public DbSet<ClientePrecoTarefaODP> ClientesPrecosTarefas { get; set; }
         public DbSet<EmpresaODP> Empresas { get; set; }
+        public DbSet<MarcaODP> Marcas { get; set; }
 
         public AtmDbContext(string connectionString)
         {

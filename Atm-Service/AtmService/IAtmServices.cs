@@ -4,6 +4,7 @@ using AtmService.Contatos;
 using AtmService.Empresas;
 using AtmService.Enderecos;
 using AtmService.Fiscal;
+using AtmService.Marcas;
 using AtmService.Seguranca;
 using AtmService.Usuarios;
 
@@ -19,6 +20,8 @@ namespace AtmService
         IFiscalService FiscalService { get; }
         IClientesService ClientesService { get; }
         IEmpresasService EmpresasService { get; }
+
+        IMarcasService MarcasService { get; }
 
         /// <summary>
         /// Salva operações em memória.

@@ -10,6 +10,7 @@ using AtmServiceInfra.Empresas;
 using AtmServiceInfra.Erros;
 using AtmServiceInfra.Estados;
 using AtmServiceInfra.Logradouros;
+using AtmServiceInfra.Marcas;
 using AtmServiceInfra.Seguranca;
 using Microsoft.Extensions.Configuration;
 
@@ -32,6 +33,7 @@ namespace AtmServiceInfra
         private ICnaesRepositorio cnaesRepositorio;
         private IClientesRepositorio clientesRepositorio;
         private IEmpresasRepositorio empresasRepositorio;
+        private IMarcasRepositorio marcasRepositorio;
 
         public Repositorios(IConfiguration configuration)
         {
@@ -205,6 +207,19 @@ namespace AtmServiceInfra
                 }
 
                 return this.empresasRepositorio;
+            }
+        }
+
+        public IMarcasRepositorio MarcasRepositorio
+        {
+            get
+            {
+                if (this.marcasRepositorio == null)
+                {
+                    this.marcasRepositorio = new MarcasRepositorio(_context);
+                }
+
+                return this.marcasRepositorio;
             }
         }
 

@@ -1,4 +1,4 @@
-<atm-component>
+<atm-component class="property-screen">
     <div id="cli-container">
         <atm-tabs [headers]="['Detalhes do cliente']">
             <form id="frm-cliente" [formGroup]="empresaForm" (ngSubmit)="onSubmit()" tab1>
@@ -176,11 +176,11 @@
                     {{serverErros}}
                 </atm-val-message>
 
-                <div class="container-botoes">
-                    <div class="grid-item no-padding margin-top-10">
+                <div class="form-actions">
+                    <div class="form-action">
                         <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
                     </div>
-                    <div class="grid-item offset-3-1 no-padding margin-top-10">
+                    <div class="form-action">
                         <atm-button label="Salvar" [type]="'primary'" [submit]="true" ></atm-button>
                     </div>
                 </div>

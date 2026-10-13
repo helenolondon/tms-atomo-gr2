@@ -9,6 +9,7 @@ using AtmServiceDominio.ObjetosDeDominio.Empresas;
 using AtmServiceDominio.ObjetosDeDominio.Estados;
 using AtmServiceDominio.ObjetosDeDominio.Fiscal;
 using AtmServiceDominio.ObjetosDeDominio.Logradouros;
+using AtmServiceDominio.ObjetosDeDominio.Marcas;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
 using AtmServiceDominio.ObjetosDeDominio.Usuarios;
@@ -36,6 +37,7 @@ namespace AtmServiceDominio
         IFiscalOD fiscalOD = null;
         ISistemaOD sistemaOD = null;
         IEmpresasOD empresasOD = null;
+        IMarcasOD marcasOD = null;
 
         public Dominios(IConfiguration configuration)
         {
@@ -245,6 +247,21 @@ namespace AtmServiceDominio
                 }
 
                 return empresasOD;
+            }
+        }
+
+        public IMarcasOD MarcasOD
+        {
+            get
+            {
+                if (marcasOD == null)
+                {
+                    marcasOD = new MarcasOD(reps.MarcasRepositorio);
+                    marcasOD.NomeSingular = "Marca";
+                    marcasOD.NomePlural = "Marcas";
+                }
+
+                return marcasOD;
             }
         }
     }

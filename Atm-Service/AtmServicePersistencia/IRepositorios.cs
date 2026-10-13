@@ -15,6 +15,7 @@ using AtmServiceInfra.Clientes;
 using AtmServiceInfra.Clientes.PrecosTarefas;
 using AtmServiceInfra.Arquivos;
 using AtmServiceInfra.Empresas;
+using AtmServiceInfra.Marcas;
 
 namespace AtmServiceInfra
 {
@@ -32,7 +33,8 @@ namespace AtmServiceInfra
         ICnaesRepositorio CnaesRepositorio { get; }
         IClientesRepositorio ClientesRepositorio { get; }
         IEmpresasRepositorio EmpresasRepositorio { get; }
-        
+        IMarcasRepositorio MarcasRepositorio { get; }
+
         void Salvar();
     }
 }

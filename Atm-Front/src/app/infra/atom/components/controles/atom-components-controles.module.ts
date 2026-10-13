@@ -5,6 +5,7 @@ import { AtmCheckboxComponent } from './atm-checkbox.component';
 import { AtmDateEditorComponent } from './atm-date-editor.component';
 import { AtmServerResponseErrorComponent } from './atm-server-response-error.component';
 import { AtmTextEditorComponent } from './atm-text-editor.component';
+import { AtmTextAreaComponent } from './atm-text-area.component';
 import { AtmValMessageComponent } from './atm-val-message.component';
 import { PrimeNGModule } from 'src/app/infra/terceiros/prime-ng.module';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { AtmRadiobuttonComponent } from './atm-radiobutton.component';
     AtmDateEditorComponent,
     AtmServerResponseErrorComponent,
     AtmTextEditorComponent,
+    AtmTextAreaComponent,
     AtmValMessageComponent,
     AtmPanelComponent,
     AtmFieldsetComponent,
@@ -49,6 +51,7 @@ import { AtmRadiobuttonComponent } from './atm-radiobutton.component';
     AtmDateEditorComponent,
     AtmServerResponseErrorComponent,
     AtmTextEditorComponent,
+    AtmTextAreaComponent,
     AtmValMessageComponent,
     AtmPanelComponent,
     AtmFieldsetComponent,

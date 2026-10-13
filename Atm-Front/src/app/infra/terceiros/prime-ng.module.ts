@@ -20,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import { PasswordModule } from 'primeng/password';
 import { TabViewModule } from 'primeng/tabview';
 import {TreeModule} from 'primeng/tree';
@@ -54,6 +55,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     ProgressBarModule,
     TooltipModule,
     InputTextModule,
+    InputTextareaModule,
     PasswordModule,
     TabViewModule,
     TreeModule,
