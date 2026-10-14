@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="produtoGrupos"
+    [colunas]="colunas"
+    [titulo]="'GRUPOS DE PRODUTO'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>

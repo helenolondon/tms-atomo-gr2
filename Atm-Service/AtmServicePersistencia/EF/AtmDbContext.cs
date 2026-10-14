@@ -29,6 +29,8 @@ namespace AtmServiceInfra.EF
         public DbSet<ProdutoTipoODP> ProdutoTipos { get; set; }
         public DbSet<UnidadeDeMedidaODP> UnidadesDeMedida { get; set; }
         public DbSet<TipoVeiculoODP> TipoVeiculos { get; set; }
+        public DbSet<ProdutoGrupoODP> ProdutoGrupos { get; set; }
+        public DbSet<ProdutoODP> Produtos { get; set; }
 
         public AtmDbContext(string connectionString)
         {
@@ -60,6 +62,26 @@ namespace AtmServiceInfra.EF
                 .WithMany()
                 .HasForeignKey(l => l.UsuarioCad)
                 .HasPrincipalKey(u => u.Login);
+
+            modelBuilder.Entity<ProdutoODP>()
+                .HasOne(p => p.UnidadeDeMedida)
+                .WithMany()
+                .HasForeignKey(p => p.CodUnidadeDeMedida);
+
+            modelBuilder.Entity<ProdutoODP>()
+                .HasOne(p => p.ProdutoTipo)
+                .WithMany()
+                .HasForeignKey(p => p.CodProdutoTipo);
+
+            modelBuilder.Entity<ProdutoODP>()
+                .HasOne(p => p.Marca)
+                .WithMany()
+                .HasForeignKey(p => p.CodMarca);
+
+            modelBuilder.Entity<ProdutoODP>()
+                .HasOne(p => p.ProdutoGrupo)
+                .WithMany()
+                .HasForeignKey(p => p.CodProdutoGrupo);
         }
     }
 }

@@ -27,6 +27,8 @@ export class SideMenuComponent implements OnInit {
         .AddItem(new AtmMenuItem("Empresas", null, "empresas"))
         .AddItem(new AtmMenuItem("Clientes", null, "clientes"))
         .AddItem(new AtmMenuItem("Marcas", null, "marcas"))
+        .AddItem(new AtmMenuItem("Produtos", null, "produtos"))
+        .AddItem(new AtmMenuItem('Grupos de produto', null, 'produtogrupos'))
         .AddItem(new AtmMenuItem('Tipos de produto', null, 'produtotipos'))
         .AddItem(new AtmMenuItem('Tipos de agressividade', null, 'produtotipoagressividade'))
         .AddItem(new AtmMenuItem('Unidades de medida', null, 'unidadesdemedida'))

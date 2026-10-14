@@ -5,13 +5,18 @@ using AtmServiceInfra.Marcas;
 using AtmServiceInfra.ODP;
 using System.Collections.Generic;
 using System.Linq;
+using AtmServiceInfra.Produtos;
+using AtmServiceDominio.Erros;
 
 namespace AtmServiceDominio.ObjetosDeDominio.Marcas
 {
     public class MarcasOD : AtmObjetoDominio<MarcaODP>, IMarcasOD
     {
-        public MarcasOD(IMarcasRepositorio repositorio) : base(repositorio)
+        IProdutosRepositorio produtosRepositorio;
+        
+        public MarcasOD(IMarcasRepositorio repositorio, IProdutosRepositorio produtosRepositorio) : base(repositorio)
         {
+            this.produtosRepositorio = produtosRepositorio;
         }
 
         public List<MarcaODN> Listar()
@@ -41,6 +46,17 @@ namespace AtmServiceDominio.ObjetosDeDominio.Marcas
             if (inserindo)
             {
                 obj.CodMarca = this.repositorio.ObterProximoValorDeSequencia("TD_MARCAS_SEQ");
+            }
+        }
+
+        protected internal override void AntesDeExcluir(MarcaODP obj)
+        {
+            base.AntesDeExcluir(obj);
+
+            if (this.produtosRepositorio.ContarProdutosPorMarca(obj.CodMarca) > 0)
+            {
+                throw new OperacaoNaoPermitidaDE("Não é possível excluir a marca, pois existem produtos associados a ela.");
+
             }
         }
     }

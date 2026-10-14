@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="produtos"
+    [colunas]="colunas"
+    [titulo]="'PRODUTOS'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'descricao'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>

@@ -12,6 +12,8 @@ using AtmServiceDominio.ObjetosDeDominio.Logradouros;
 using AtmServiceDominio.ObjetosDeDominio.Marcas;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipoAgressividades;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipos;
+using AtmServiceDominio.ObjetosDeDominio.Produtos;
+using AtmServiceDominio.ObjetosDeDominio.ProdutoGrupos;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
 using AtmServiceDominio.ObjetosDeDominio.TipoVeiculos;
@@ -46,6 +48,8 @@ namespace AtmServiceDominio
         IProdutoTiposOD produtoTiposOD = null;
         IUnidadesDeMedidaOD unidadesDeMedidaOD = null;
         ITipoVeiculosOD tipoVeiculosOD = null;
+        IProdutosOD produtosOD = null;
+        IProdutoGruposOD produtoGruposOD = null;
 
         public Dominios(IConfiguration configuration)
         {
@@ -264,7 +268,7 @@ namespace AtmServiceDominio
             {
                 if (marcasOD == null)
                 {
-                    marcasOD = new MarcasOD(reps.MarcasRepositorio);
+                    marcasOD = new MarcasOD(reps.MarcasRepositorio, reps.ProdutosRepositorio );
                     marcasOD.NomeSingular = "Marca";
                     marcasOD.NomePlural = "Marcas";
                 }
@@ -294,7 +298,7 @@ namespace AtmServiceDominio
             {
                 if (produtoTiposOD == null)
                 {
-                    produtoTiposOD = new ProdutoTiposOD(reps.ProdutoTiposRepositorio);
+                    produtoTiposOD = new ProdutoTiposOD(reps.ProdutoTiposRepositorio, reps.ProdutosRepositorio);
                     produtoTiposOD.NomeSingular = "Tipo de produto";
                     produtoTiposOD.NomePlural = "Tipos de produto";
                 }
@@ -330,6 +334,36 @@ namespace AtmServiceDominio
                 }
 
                 return tipoVeiculosOD;
+            }
+        }
+
+        public IProdutosOD ProdutosOD
+        {
+            get
+            {
+                if (produtosOD == null)
+                {
+                    produtosOD = new ProdutosOD(reps.ProdutosRepositorio);
+                    produtosOD.NomeSingular = "Produto";
+                    produtosOD.NomePlural = "Produtos";
+                }
+
+                return produtosOD;
+            }
+        }
+
+        public IProdutoGruposOD ProdutoGruposOD
+        {
+            get
+            {
+                if (produtoGruposOD == null)
+                {
+                    produtoGruposOD = new ProdutoGruposOD(reps.ProdutoGruposRepositorio, reps.ProdutosRepositorio);
+                    produtoGruposOD.NomeSingular = "Grupo de produto";
+                    produtoGruposOD.NomePlural = "Grupos de produto";
+                }
+
+                return produtoGruposOD;
             }
         }
 

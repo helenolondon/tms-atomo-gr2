@@ -1,0 +1,101 @@
+<atm-component class="property-screen">
+    <div class="produto-container">
+        <atm-tabs [headers]="['Dados do produto']">
+            <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()" tab1>
+                <atm-fieldset [title]="'Propriedades'">
+                    <div class="grid-container">
+                        <div class="grid-item codigo">
+                            <atm-text-editor id="tx-cod-produto" name="codProduto" formControlName="codProduto">
+                                Código:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item descricao">
+                            <atm-text-editor id="tx-descricao-produto" name="descricao" [focus]="true" [maxlength]="250"
+                                formControlName="descricao">
+                                Descrição:
+                            </atm-text-editor>
+                            <atm-val-message [control]="produtoForm.get('descricao')">
+                                Descrição é obrigatória e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item aka">
+                            <atm-text-editor id="tx-aka-produto" name="aka" [maxlength]="250" formControlName="aka">
+                                Aka:
+                            </atm-text-editor>
+                            <atm-val-message [control]="produtoForm.get('aka')">
+                                Aka é obrigatório e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item unidade">
+                            <atm-dropdown id="dd-unidade-produto" name="codUnidadeDeMedida"
+                                [items]="unidadesDeMedida" formControlName="codUnidadeDeMedida">
+                                Unidade de medida:
+                            </atm-dropdown>
+                            <atm-val-message [control]="produtoForm.get('codUnidadeDeMedida')">
+                                Unidade de medida é obrigatória
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item tipo">
+                            <atm-dropdown id="dd-tipo-produto" name="codProdutoTipo"
+                                [items]="tiposDeProduto" formControlName="codProdutoTipo">
+                                Tipo de produto:
+                            </atm-dropdown>
+                            <atm-val-message [control]="produtoForm.get('codProdutoTipo')">
+                                Tipo de produto é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item marca">
+                            <atm-dropdown id="dd-marca-produto" name="codMarca"
+                                [items]="marcas" formControlName="codMarca">
+                                Marca:
+                            </atm-dropdown>
+                            <atm-val-message [control]="produtoForm.get('codMarca')">
+                                Marca é obrigatória
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item grupo">
+                            <atm-dropdown id="dd-grupo-produto" name="codProdutoGrupo"
+                                [items]="gruposDeProduto" formControlName="codProdutoGrupo">
+                                Grupo de produto:
+                            </atm-dropdown>
+                            <atm-val-message [control]="produtoForm.get('codProdutoGrupo')">
+                                Grupo de produto é obrigatório
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item preco-compra">
+                            <atm-text-editor id="tx-preco-compra-produto" name="precoDeCompra" [type]="'number'"
+                                formControlName="precoDeCompra">
+                                Preço de compra:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item preco-medio">
+                            <atm-text-editor id="tx-preco-medio-produto" name="precoMedio" [type]="'number'"
+                                formControlName="precoMedio">
+                                Preço médio:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item preco-venda">
+                            <atm-text-editor id="tx-preco-venda-produto" name="precoDeVenda" [type]="'number'"
+                                formControlName="precoDeVenda">
+                                Preço de venda:
+                            </atm-text-editor>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <atm-val-message [valid]="serverErros == null">
+                    {{serverErros}}
+                </atm-val-message>
+
+                <div class="form-actions">
+                    <div class="form-action">
+                        <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
+                    </div>
+                    <div class="form-action">
+                        <atm-button label="Salvar" [type]="'primary'" [submit]="true"></atm-button>
+                    </div>
+                </div>
+            </form>
+        </atm-tabs>
+    </div>
+</atm-component>

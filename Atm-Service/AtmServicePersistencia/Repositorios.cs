@@ -12,6 +12,8 @@ using AtmServiceInfra.Estados;
 using AtmServiceInfra.Logradouros;
 using AtmServiceInfra.Marcas;
 using AtmServiceInfra.ProdutoTipos;
+using AtmServiceInfra.Produtos;
+using AtmServiceInfra.ProdutoGrupos;
 using AtmServiceInfra.Seguranca;
 using AtmServiceInfra.TipoVeiculos;
 using AtmServiceInfra.UnidadesDeMedida;
@@ -41,6 +43,8 @@ namespace AtmServiceInfra
         private IProdutoTiposRepositorio produtoTiposRepositorio;
         private IUnidadesDeMedidaRepositorio unidadesDeMedidaRepositorio;
         private ITipoVeiculosRepositorio tipoVeiculosRepositorio;
+        private IProdutosRepositorio produtosRepositorio;
+        private IProdutoGruposRepositorio produtoGruposRepositorio;
 
         public Repositorios(IConfiguration configuration)
         {
@@ -279,6 +283,32 @@ namespace AtmServiceInfra
                 }
 
                 return this.tipoVeiculosRepositorio;
+            }
+        }
+
+        public IProdutosRepositorio ProdutosRepositorio
+        {
+            get
+            {
+                if (this.produtosRepositorio == null)
+                {
+                    this.produtosRepositorio = new ProdutosRepositorio(_context);
+                }
+
+                return this.produtosRepositorio;
+            }
+        }
+
+        public IProdutoGruposRepositorio ProdutoGruposRepositorio
+        {
+            get
+            {
+                if (this.produtoGruposRepositorio == null)
+                {
+                    this.produtoGruposRepositorio = new ProdutoGruposRepositorio(_context);
+                }
+
+                return this.produtoGruposRepositorio;
             }
         }
 

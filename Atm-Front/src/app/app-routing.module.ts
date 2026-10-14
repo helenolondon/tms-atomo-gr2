@@ -22,6 +22,8 @@ import { GerenciadorProdutoTiposComponent } from './modulos/produtotipos/gerenci
 import { GerenciadorProdutoTipoAgressividadesComponent } from './modulos/produtotipoagressividades/gerenciador-produto-tipo-agressividades/gerenciador-produto-tipo-agressividades.component';
 import { GerenciadorUnidadesDeMedidaComponent } from './modulos/unidadesdemedida/gerenciador-unidades-de-medida/gerenciador-unidades-de-medida.component';
 import { GerenciadorTiposVeiculoComponent } from './modulos/tipoveiculo/gerenciador-tipos-veiculo/gerenciador-tipos-veiculo.component';
+import { GerenciadorProdutosComponent } from './modulos/produtos/gerenciador-produtos/gerenciador-produtos.component';
+import { GerenciadorProdutoGruposComponent } from './modulos/produtogrupos/gerenciador-produto-grupos/gerenciador-produto-grupos.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {id: "Login"}},
@@ -85,6 +87,18 @@ const routes: Routes = [
   {
     path: 'tipoveiculo',
     component: GerenciadorTiposVeiculoComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'produtos',
+    component: GerenciadorProdutosComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'produtogrupos',
+    component: GerenciadorProdutoGruposComponent,
     canActivate: [AutenticaGuard]
   },
 

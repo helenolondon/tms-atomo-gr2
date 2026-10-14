@@ -3,15 +3,22 @@ using AtmServiceDominio.ObjetosDeNegocio;
 using AtmServiceInfra;
 using AtmServiceInfra.ODP;
 using AtmServiceInfra.ProdutoTipos;
+using AtmServiceInfra.Produtos;
 using System.Collections.Generic;
 using System.Linq;
+using AtmServiceDominio.Erros;
 
 namespace AtmServiceDominio.ObjetosDeDominio.ProdutoTipos
 {
     public class ProdutoTiposOD : AtmObjetoDominio<ProdutoTipoODP>, IProdutoTiposOD
     {
-        public ProdutoTiposOD(IProdutoTiposRepositorio repositorio) : base(repositorio)
+        IProdutosRepositorio produtosRepositorio;
+        IProdutoTiposRepositorio repositorio;
+
+        public ProdutoTiposOD(IProdutoTiposRepositorio repositorio, IProdutosRepositorio produtosRepositorio) : base(repositorio)
         {
+            this.repositorio = repositorio;
+            this.produtosRepositorio = produtosRepositorio;
         }
 
         public List<ProdutoTipoODN> Listar()
@@ -51,6 +58,15 @@ namespace AtmServiceDominio.ObjetosDeDominio.ProdutoTipos
             if (inserindo)
             {
                 obj.CodProdutoTipo = this.repositorio.ObterProximoValorDeSequencia("TD_PRODUTOTIPO_SEQ");
+            }
+        }
+
+        override protected internal void AntesDeExcluir(ProdutoTipoODP obj)
+        {
+            base.AntesDeExcluir(obj);
+            if (this.produtosRepositorio.ContarProdutosPorTipo(obj.CodProdutoTipo) > 0)
+            {
+                throw new OperacaoNaoPermitidaDE("Não é possível excluir o tipo de produto, pois existem produtos associados a ele.");
             }
         }
     }

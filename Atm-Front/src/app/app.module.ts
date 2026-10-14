@@ -36,6 +36,10 @@ import { GerenciadorUnidadesDeMedidaComponent } from './modulos/unidadesdemedida
 import { PropriedadesUnidadeDeMedidaComponent } from './modulos/unidadesdemedida/propriedades-unidade-de-medida/propriedades-unidade-de-medida.component';
 import { GerenciadorTiposVeiculoComponent } from './modulos/tipoveiculo/gerenciador-tipos-veiculo/gerenciador-tipos-veiculo.component';
 import { PropriedadesTipoVeiculoComponent } from './modulos/tipoveiculo/propriedades-tipo-veiculo/propriedades-tipo-veiculo.component';
+import { GerenciadorProdutosComponent } from './modulos/produtos/gerenciador-produtos/gerenciador-produtos.component';
+import { PropriedadesProdutoComponent } from './modulos/produtos/propriedades-produto/propriedades-produto.component';
+import { GerenciadorProdutoGruposComponent } from './modulos/produtogrupos/gerenciador-produto-grupos/gerenciador-produto-grupos.component';
+import { PropriedadesProdutoGrupoComponent } from './modulos/produtogrupos/propriedades-produto-grupo/propriedades-produto-grupo.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +63,20 @@ import { PropriedadesTipoVeiculoComponent } from './modulos/tipoveiculo/propried
     GerenciadorUnidadesDeMedidaComponent,
     PropriedadesUnidadeDeMedidaComponent,
     GerenciadorTiposVeiculoComponent,
-    PropriedadesTipoVeiculoComponent
+    PropriedadesTipoVeiculoComponent,
+    GerenciadorProdutosComponent,
+    PropriedadesProdutoComponent,
+    GerenciadorProdutoGruposComponent,
+    PropriedadesProdutoGrupoComponent
   ],
   entryComponents: [
     PropriedadesMarcaComponent,
     PropriedadesProdutoTipoComponent,
     PropriedadesProdutoTipoAgressividadeComponent,
     PropriedadesUnidadeDeMedidaComponent,
-    PropriedadesTipoVeiculoComponent
+    PropriedadesTipoVeiculoComponent,
+    PropriedadesProdutoComponent,
+    PropriedadesProdutoGrupoComponent
   ],
   imports: [
     BrowserModule,    

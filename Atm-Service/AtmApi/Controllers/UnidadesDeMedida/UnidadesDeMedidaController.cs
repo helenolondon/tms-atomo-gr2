@@ -6,7 +6,7 @@ namespace AtmApi.Controllers.UnidadesDeMedida
 {
     [Route("api/unidadesdemedida")]
     [ApiController]
-    [AutorizarUsuarioLogado]
+    //[AutorizarUsuarioLogado]
     public class UnidadesDeMedidaController : AtmController
     {
         [HttpGet]
