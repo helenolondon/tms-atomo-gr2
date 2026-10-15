@@ -14,6 +14,7 @@ using AtmServiceDominio.ObjetosDeDominio.ProdutoTipoAgressividades;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoTipos;
 using AtmServiceDominio.ObjetosDeDominio.Produtos;
 using AtmServiceDominio.ObjetosDeDominio.ProdutoGrupos;
+using AtmServiceDominio.ObjetosDeDominio.ServicoCategorias;
 using AtmServiceDominio.ObjetosDeDominio.Seguranca;
 using AtmServiceDominio.ObjetosDeDominio.Sistema;
 using AtmServiceDominio.ObjetosDeDominio.TipoVeiculos;
@@ -50,6 +51,7 @@ namespace AtmServiceDominio
         ITipoVeiculosOD tipoVeiculosOD = null;
         IProdutosOD produtosOD = null;
         IProdutoGruposOD produtoGruposOD = null;
+        IServicoCategoriasOD servicoCategoriasOD = null;
 
         public Dominios(IConfiguration configuration)
         {
@@ -364,6 +366,21 @@ namespace AtmServiceDominio
                 }
 
                 return produtoGruposOD;
+            }
+        }
+
+        public IServicoCategoriasOD ServicoCategoriasOD
+        {
+            get
+            {
+                if (servicoCategoriasOD == null)
+                {
+                    servicoCategoriasOD = new ServicoCategoriasOD(reps.ServicoCategoriasRepositorio);
+                    servicoCategoriasOD.NomeSingular = "Categoria de serviço";
+                    servicoCategoriasOD.NomePlural = "Categorias de serviço";
+                }
+
+                return servicoCategoriasOD;
             }
         }
 

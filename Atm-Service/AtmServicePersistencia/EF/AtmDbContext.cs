@@ -31,6 +31,7 @@ namespace AtmServiceInfra.EF
         public DbSet<TipoVeiculoODP> TipoVeiculos { get; set; }
         public DbSet<ProdutoGrupoODP> ProdutoGrupos { get; set; }
         public DbSet<ProdutoODP> Produtos { get; set; }
+        public DbSet<ServicoCategoriaODP> ServicoCategorias { get; set; }
 
         public AtmDbContext(string connectionString)
         {

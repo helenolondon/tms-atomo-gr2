@@ -9,6 +9,7 @@ using AtmService.ProdutoTipoAgressividades;
 using AtmService.ProdutoTipos;
 using AtmService.Produtos;
 using AtmService.ProdutoGrupos;
+using AtmService.ServicoCategorias;
 using AtmService.Seguranca;
 using AtmService.TipoVeiculos;
 using AtmService.UnidadesDeMedida;
@@ -34,6 +35,7 @@ namespace AtmService
         ITipoVeiculosService TipoVeiculosService { get; }
         IProdutosService ProdutosService { get; }
         IProdutoGruposService ProdutoGruposService { get; }
+        IServicoCategoriasService ServicoCategoriasService { get; }
 
         /// <summary>
         /// Salva operações em memória.

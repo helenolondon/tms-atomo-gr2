@@ -40,6 +40,8 @@ import { GerenciadorProdutosComponent } from './modulos/produtos/gerenciador-pro
 import { PropriedadesProdutoComponent } from './modulos/produtos/propriedades-produto/propriedades-produto.component';
 import { GerenciadorProdutoGruposComponent } from './modulos/produtogrupos/gerenciador-produto-grupos/gerenciador-produto-grupos.component';
 import { PropriedadesProdutoGrupoComponent } from './modulos/produtogrupos/propriedades-produto-grupo/propriedades-produto-grupo.component';
+import { GerenciadorServicoCategoriasComponent } from './modulos/servicocategorias/gerenciador-servico-categorias/gerenciador-servico-categorias.component';
+import { PropriedadesServicoCategoriaComponent } from './modulos/servicocategorias/propriedades-servico-categoria/propriedades-servico-categoria.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { PropriedadesProdutoGrupoComponent } from './modulos/produtogrupos/propr
     GerenciadorProdutosComponent,
     PropriedadesProdutoComponent,
     GerenciadorProdutoGruposComponent,
-    PropriedadesProdutoGrupoComponent
+    PropriedadesProdutoGrupoComponent,
+    GerenciadorServicoCategoriasComponent,
+    PropriedadesServicoCategoriaComponent
   ],
   entryComponents: [
     PropriedadesMarcaComponent,
@@ -76,7 +80,8 @@ import { PropriedadesProdutoGrupoComponent } from './modulos/produtogrupos/propr
     PropriedadesUnidadeDeMedidaComponent,
     PropriedadesTipoVeiculoComponent,
     PropriedadesProdutoComponent,
-    PropriedadesProdutoGrupoComponent
+    PropriedadesProdutoGrupoComponent,
+    PropriedadesServicoCategoriaComponent
   ],
   imports: [
     BrowserModule,    

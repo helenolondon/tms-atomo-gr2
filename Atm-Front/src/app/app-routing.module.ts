@@ -24,6 +24,7 @@ import { GerenciadorUnidadesDeMedidaComponent } from './modulos/unidadesdemedida
 import { GerenciadorTiposVeiculoComponent } from './modulos/tipoveiculo/gerenciador-tipos-veiculo/gerenciador-tipos-veiculo.component';
 import { GerenciadorProdutosComponent } from './modulos/produtos/gerenciador-produtos/gerenciador-produtos.component';
 import { GerenciadorProdutoGruposComponent } from './modulos/produtogrupos/gerenciador-produto-grupos/gerenciador-produto-grupos.component';
+import { GerenciadorServicoCategoriasComponent } from './modulos/servicocategorias/gerenciador-servico-categorias/gerenciador-servico-categorias.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {id: "Login"}},
@@ -99,6 +100,12 @@ const routes: Routes = [
   {
     path: 'produtogrupos',
     component: GerenciadorProdutoGruposComponent,
+    canActivate: [AutenticaGuard]
+  },
+
+  {
+    path: 'servicocategorias',
+    component: GerenciadorServicoCategoriasComponent,
     canActivate: [AutenticaGuard]
   },
 

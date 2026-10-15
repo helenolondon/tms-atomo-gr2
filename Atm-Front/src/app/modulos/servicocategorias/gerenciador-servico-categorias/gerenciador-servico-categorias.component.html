@@ -1,0 +1,9 @@
+<atm-gerenciador
+    [dataSource]="servicoCategorias"
+    [colunas]="colunas"
+    [titulo]="'CATEGORIAS DE SERVIÇO'"
+    [getModelApi]="getModel"
+    [deleteModelApi]="excluirModel"
+    [col-editar-tab]="'nome'"
+    (onRefresh)="onPesquisaSubmit()">
+</atm-gerenciador>

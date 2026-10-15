@@ -1,0 +1,49 @@
+<atm-component class="property-screen">
+    <div class="servico-categoria-container">
+        <atm-tabs [headers]="['Dados da categoria de serviço']">
+            <form [formGroup]="servicoCategoriaForm" (ngSubmit)="onSubmit()" tab1>
+                <atm-fieldset [title]="'Propriedades'">
+                    <div class="grid-container">
+                        <div class="grid-item codigo">
+                            <atm-text-editor id="tx-cod-servico-categoria" name="codServicoCategoria"
+                                formControlName="codServicoCategoria">
+                                Código:
+                            </atm-text-editor>
+                        </div>
+                        <div class="grid-item nome">
+                            <atm-text-editor id="tx-nome-servico-categoria" name="nome" [focus]="true"
+                                [maxlength]="250" formControlName="nome">
+                                Nome:
+                            </atm-text-editor>
+                            <atm-val-message [control]="servicoCategoriaForm.get('nome')">
+                                Nome é obrigatório e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                        <div class="grid-item descricao">
+                            <atm-text-editor id="tx-descricao-servico-categoria" name="descricao" [maxlength]="250"
+                                formControlName="descricao">
+                                Descrição:
+                            </atm-text-editor>
+                            <atm-val-message [control]="servicoCategoriaForm.get('descricao')">
+                                Descrição é obrigatória e deve ter no máximo 250 caracteres
+                            </atm-val-message>
+                        </div>
+                    </div>
+                </atm-fieldset>
+
+                <atm-val-message [valid]="serverErros == null">
+                    {{serverErros}}
+                </atm-val-message>
+
+                <div class="form-actions">
+                    <div class="form-action">
+                        <atm-button label="Cancelar" (onClick)="onResetForm()" [type]="'secondary'"></atm-button>
+                    </div>
+                    <div class="form-action">
+                        <atm-button label="Salvar" [type]="'primary'" [submit]="true"></atm-button>
+                    </div>
+                </div>
+            </form>
+        </atm-tabs>
+    </div>
+</atm-component>
